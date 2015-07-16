@@ -9717,8 +9717,9 @@ div.dataTables_processing {
 .block-content table tbody th {
   width: 200px;
 }
-.block-content table tbody.grand-total {
-  background-color: #b9bcbd;
+.block-content table tbody td.grand-total {
+  font-weight: bold;
+  background-color: #e8e8e8 !important;
 }
 .block-content .modal-body section {
   background-color: #ffffff;
