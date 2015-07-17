@@ -558,6 +558,17 @@ div.dataTables_processing {
         background-color: #e8e8e8 !important;
       }
     }
+
+    thead {
+      tr {
+        th {
+          .popover-content {
+            font-size: @font-size-small !important;
+            font-weight: normal !important;
+          }
+        }
+      }
+    }
   }
   .modal-body {
     section {
@@ -791,4 +802,12 @@ li.next.last, li.prev.first {
 .help-info-box {
   margin-left: 15px;
   margin-right: 15px;
+}
+
+ul.dropdown-menu-compact {
+  min-width: 100% !important;
+
+  > li > a {
+    padding-left: 9px !important;
+  }
 }
