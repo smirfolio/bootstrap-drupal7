@@ -9717,10 +9717,6 @@ div.dataTables_processing {
 .block-content table tbody th {
   width: 200px;
 }
-.block-content table tbody td.grand-total {
-  font-weight: bold;
-  background-color: #e8e8e8 !important;
-}
 .block-content table thead tr th .popover-content {
   font-size: 13px !important;
   font-weight: normal !important;
