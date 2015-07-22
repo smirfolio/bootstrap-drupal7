@@ -10041,6 +10041,9 @@ ul#strengthBar .point {
   margin-right: 1px;
   width: 20px;
 }
+div.statistics-tab {
+  margin-top: 25px;
+}
 .system-status-report {
   border: 1px solid rgba(77, 77, 77, 0.63) !important;
 }
