@@ -10005,6 +10005,14 @@ li.prev.first {
   margin-left: 15px;
   margin-right: 15px;
 }
+.page-agate-user .drupal-profile h3 {
+  font-size: 13px;
+}
+.page-agate-user .drupal-profile dl {
+  margin-top: 0;
+  margin-bottom: 21px;
+  font-size: 13px;
+}
 ul.dropdown-menu-compact {
   min-width: 100% !important;
 }
