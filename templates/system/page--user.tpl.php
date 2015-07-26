@@ -120,7 +120,7 @@
               <i class="fa fa-caret-down"></i></a>
             <ul class="dropdown-menu pull-right">
               <li><?php print l('<i class="fa fa-cog"></i> ' .
-                  t('My Profile'),(module_exists('obiba_agate') ? 'agate/user/profile/': 'user'),
+                  t('My Profile'),$profile_path,
                   array('html' => TRUE, 'fragment' => 'view')) ?></li>
               <li class="divider"></li>
               <li><?php print l('<i class="fa fa-sign-out"></i> ' . t('Sign Out'), 'user/logout', array('html' => true)) ?></li>

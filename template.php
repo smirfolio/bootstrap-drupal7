@@ -466,6 +466,17 @@ function obiba_bootstrap_preprocess_page(&$variables) {
     //Hide tabs user menu if not logged user
     unset($variables['tabs']);
   }
+  $variables['profile_path'] = obiba_bootstrap_get_user_profile_page();
+}
+
+function obiba_bootstrap_get_user_profile_page() {
+  global $user;
+  if (!empty($user->name)) {
+    $user_authmaps = user_get_authmaps($user->name);
+    return (module_exists('obiba_agate') &&
+      (!empty($user_authmaps['obiba_agate']) &&
+        $user_authmaps['obiba_agate'] == $user->name)) ? 'agate/user/profile/' : 'user';
+  }
 }
 
 /**
