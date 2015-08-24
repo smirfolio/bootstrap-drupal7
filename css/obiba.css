@@ -10033,3 +10033,34 @@ ul#strengthBar .point {
   margin-right: 1px;
   width: 20px;
 }
+.system-status-report {
+  border: 1px solid rgba(77, 77, 77, 0.63) !important;
+}
+.system-status-report > thead > tr > th,
+.system-status-report > tbody > tr > th,
+.system-status-report > tfoot > tr > th,
+.system-status-report > thead > tr > td,
+.system-status-report > tbody > tr > td,
+.system-status-report > tfoot > tr > td {
+  border: 1px solid rgba(77, 77, 77, 0.63);
+}
+.system-status-report > thead > tr > th,
+.system-status-report > thead > tr > td {
+  border-bottom-width: 2px;
+}
+.system-status-report .merge-down > td {
+  border-left: none ;
+  border-right: none ;
+}
+.system-status-report .ok {
+  background-color: #e5ffe2;
+}
+.system-status-report .warning {
+  background-color: #fffce5;
+}
+.system-status-report .error {
+  background-color: #fef5f1;
+}
+.system-status-report .info {
+  background-color: #bdf;
+}
