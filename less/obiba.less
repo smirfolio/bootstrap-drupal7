@@ -833,3 +833,39 @@ ul#strengthBar{
   width: 20px;
 }
  }
+
+.system-status-report{
+  border: 1px solid rgba(77, 77, 77, 0.63) !important;
+  > thead,
+  > tbody,
+  > tfoot {
+    > tr {
+      > th,
+      > td {
+        border: 1px solid rgba(77, 77, 77, 0.63);
+      }
+    }
+  }
+  > thead > tr {
+    > th,
+    > td {
+      border-bottom-width: 2px;
+    }
+  }
+  .merge-down > td{
+    border-left:none ;
+    border-right: none ;
+  }
+  .ok{
+    background-color: #e5ffe2;
+  }
+  .warning{
+    background-color:#fffce5;
+  }
+  .error{
+    background-color: #fef5f1;
+  }
+  .info{
+    background-color: #bdf;
+  }
+}
