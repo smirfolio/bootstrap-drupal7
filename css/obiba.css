@@ -10044,6 +10044,9 @@ ul#strengthBar .point {
 .system-status-report {
   border: 1px solid rgba(77, 77, 77, 0.63) !important;
 }
+.system-status-report a {
+  color: #10610B !important;
+}
 .system-status-report > thead > tr > th,
 .system-status-report > tbody > tr > th,
 .system-status-report > tfoot > tr > th,
@@ -10071,4 +10074,34 @@ ul#strengthBar .point {
 }
 .system-status-report .info {
   background-color: #bdf;
+}
+div.admin .left {
+  float: left;
+  width: 47%;
+  margin-left: 0px !important;
+}
+div.admin .admin-panel {
+  margin: 0;
+  padding: 0px !important;
+}
+div.admin .admin-panel .body {
+  padding: 0px !important;
+}
+table.update .version-status {
+  float: right;
+}
+table.update .version-status span.icon > img {
+  vertical-align: middle !important;
+  margin-left: 10px;
+  margin-top: -10px;
+}
+table.update table.version-latest {
+  border: none !important;
+  width: 100%;
+}
+table.update table.version-latest td.version-links {
+  float: right;
+}
+table.update table.version-latest td.version-links ul {
+  list-style-type: none !important;
 }
