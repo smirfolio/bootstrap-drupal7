@@ -10060,8 +10060,8 @@ ul#strengthBar .point {
   border-bottom-width: 2px;
 }
 .system-status-report .merge-down > td {
-  border-left: none ;
-  border-right: none ;
+  border-left: none;
+  border-right: none;
 }
 .system-status-report .ok {
   background-color: #e5ffe2;
@@ -10104,4 +10104,7 @@ table.update table.version-latest td.version-links {
 }
 table.update table.version-latest td.version-links ul {
   list-style-type: none !important;
+}
+table#permissions td.module {
+  font-weight: bolder;
 }
