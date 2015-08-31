@@ -91,6 +91,3 @@ scripts[] = js/obiba-bootstrap-progressbar-controller.js
 ; Region Wells
 ; --------------
 settings[bootstrap_region_well-facets] = 'well'
-
-version = 7.x-1.0-dev
-project = obiba_bootstrap

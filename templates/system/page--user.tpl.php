@@ -72,24 +72,27 @@
  *
  * @ingroup themeable
  */
+
 ?>
+
 <header id="navbar" role="banner" class="<?php print $navbar_classes; ?>">
   <div class="container">
     <div class="navbar-header">
       <?php if ($logo): ?>
         <a class="logo navbar-btn pull-left" href="<?php print $front_page; ?>"
-           title="<?php print t('Home'); ?>">
+          title="<?php print t('Home'); ?>">
           <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>"/>
         </a>
       <?php endif; ?>
 
       <?php if (!empty($site_name)): ?>
         <a class="name navbar-brand" href="<?php print $front_page; ?>"
-           title="<?php print t('Home'); ?>"><?php print $site_name; ?></a>
+          title="<?php print t('Home'); ?>"><?php print $site_name; ?></a>
       <?php endif; ?>
 
       <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+      <button type="button" class="navbar-toggle" data-toggle="collapse"
+        data-target=".navbar-collapse">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -120,10 +123,10 @@
               <i class="fa fa-caret-down"></i></a>
             <ul class="dropdown-menu pull-right">
               <li><?php print l('<i class="fa fa-cog"></i> ' .
-                  t('My Profile'),$profile_path,
+                  t('My Profile'), $profile_path,
                   array('html' => TRUE, 'fragment' => 'view')) ?></li>
               <li class="divider"></li>
-              <li><?php print l('<i class="fa fa-sign-out"></i> ' . t('Sign Out'), 'user/logout', array('html' => true)) ?></li>
+              <li><?php print l('<i class="fa fa-sign-out"></i> ' . t('Sign Out'), 'user/logout', array('html' => TRUE)) ?></li>
             </ul>
           </li>
         </ul>
@@ -145,8 +148,6 @@
   <!-- /#page-header -->
 
   <div class="row">
-    <?php if (!empty($breadcrumb)): //print $breadcrumb;
-    endif; ?>
 
     <h1 class="page-header">
       <?php if (!empty($classes_array['title_page'])) : ?>
@@ -170,7 +171,8 @@
 
     <section<?php print $content_column_class; ?>>
       <?php if (!empty($page['highlighted'])): ?>
-        <div class="highlighted jumbotron"><?php print render($page['highlighted']); ?></div>
+        <div
+          class="highlighted jumbotron"><?php print render($page['highlighted']); ?></div>
       <?php endif; ?>
 
       <a id="main-content"></a>
@@ -199,7 +201,8 @@
 
     <!-- Fixed side -->
     <div id="fixed-sidebar">
-      <div id="sidebar-wrapper" class="side-bar-content sidebar-untoggled"></div>
+      <div id="sidebar-wrapper"
+        class="side-bar-content sidebar-untoggled"></div>
     </div>
     <!-- /#Fixed side -->
 

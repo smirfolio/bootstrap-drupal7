@@ -1,8 +1,11 @@
 <?php
 /**
- * @file code fo block template in micado theme
+ * @file
+ * Code for block template in micado theme.
  */
+
 ?>
+
 <section id="<?php print $block_html_id; ?>" class="<?php print $classes; ?>"<?php print $attributes; ?>>
 
   <?php print render($title_prefix); ?>
