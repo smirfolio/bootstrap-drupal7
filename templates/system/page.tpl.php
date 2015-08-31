@@ -72,12 +72,16 @@
  *
  * @ingroup themeable
  */
-if (arg(0) == "agate") { /* check if the path is example.com/agate */
-  include 'page--user.tpl.php'; /*load a custom page--user.tpl.php */
-  return;
-}
+
 ?>
 
+<?php if (arg(0) == "agate"): ?>
+  <?php
+  /* check if the path is example.com/agate */
+  include 'page--user.tpl.php';
+  /* load a custom page--user.tpl.php */
+  ?>
+<?php else: ?>
 <header id="navbar" role="banner" class="<?php print $navbar_classes; ?>">
   <div class="container">
     <div class="navbar-header">
@@ -126,7 +130,7 @@ if (arg(0) == "agate") { /* check if the path is example.com/agate */
               <i class="fa fa-caret-down"></i></a>
             <ul class="dropdown-menu pull-right">
               <li><?php print l('<i class="fa fa-cog"></i> ' .
-                  t('My Profile'),$profile_path,
+                  t('My Profile'), $profile_path,
                   array('html' => TRUE, 'fragment' => 'view')) ?></li>
               <li class="divider"></li>
               <li><?php print l('<i class="fa fa-sign-out"></i> ' . t('Sign Out'), 'user/logout', array('html' => TRUE)) ?></li>
@@ -135,12 +139,15 @@ if (arg(0) == "agate") { /* check if the path is example.com/agate */
         </ul>
       <?php else: ?>
         <form class="navbar-form navbar-right">
-          <?php print l(t(variable_get_value('access_signup_button')),
+          <?php print l(variable_get_value('access_signup_button'),
             (module_exists('obiba_agate') ? 'agate' : 'user') . '/register/',
-            array('attributes' => array('class' => 'btn btn-info'),'fragment' => 'join')) ?>
-          <?php print l(t(variable_get_value('access_signin_button')), 'user/login', array(
+            array(
+              'attributes' => array('class' => 'btn btn-info'),
+              'fragment' => 'join',
+            )) ?>
+          <?php print l(variable_get_value('access_signin_button'), 'user/login', array(
             'attributes' => array('class' => 'btn btn-default'),
-            'query' => array('destination' => current_path())
+            'query' => array('destination' => current_path()),
           )) ?>
         </form>
       <?php endif; ?>
@@ -161,7 +168,8 @@ if (arg(0) == "agate") { /* check if the path is example.com/agate */
   <!-- /#page-header -->
 
   <div class="row">
-    <?php if (!empty($breadcrumb)):  print $breadcrumb; endif; ?>
+    <?php if (!empty($breadcrumb)): print $breadcrumb;
+    endif; ?>
     <?php if (!empty($title)): ?>
       <h1 class="page-header">
         <?php if (!empty($classes_array['title_page'])) : ?>
@@ -179,7 +187,7 @@ if (arg(0) == "agate") { /* check if the path is example.com/agate */
           <button type="button" class="close" data-dismiss="alert"
             aria-label="Close"><span aria-hidden="true">&times;</span></button>
           <?php print render($page['obiba_help']); ?>
-        </div>
+      </div>
       </div>
     <?php endif; ?>
     <?php if (!empty($page['sidebar_first']) || !empty($page['facets'])): ?>
@@ -190,7 +198,8 @@ if (arg(0) == "agate") { /* check if the path is example.com/agate */
         <?php if (!empty($page['sidebar_first'])) : ?>
           <?php print render($page['sidebar_first']); ?>
         <?php endif; ?>
-      </aside>  <!-- /#sidebar-first -->
+      </aside>
+      <!-- /#sidebar-first -->
     <?php endif; ?>
 
     <section<?php print $content_column_class; ?>>
@@ -219,7 +228,8 @@ if (arg(0) == "agate") { /* check if the path is example.com/agate */
     <?php if (!empty($page['sidebar_second'])): ?>
       <aside class="col-sm-3" role="complementary">
         <?php print render($page['sidebar_second']); ?>
-      </aside>  <!-- /#sidebar-second -->
+      </aside>
+      <!-- /#sidebar-second -->
     <?php endif; ?>
     <!-- Sidebar -->
 
@@ -236,3 +246,4 @@ if (arg(0) == "agate") { /* check if the path is example.com/agate */
 <footer class="footer container">
   <?php print render($page['footer']); ?>
 </footer>
+<?php endif; ?>

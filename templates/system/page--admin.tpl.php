@@ -1,3 +1,11 @@
+<?php
+/**
+ * @file
+ * Code Admin layout.
+ */
+
+?>
+
 <div class="main-container container">
 
   <header role="banner" id="page-header">
