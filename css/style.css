@@ -6567,10 +6567,10 @@ div.password-suggestions ul {
   border-radius: 0px !important;
   margin-right: 5px;
 }
-#obiba-mica-search-form .input-group-addon {
-  margin-right: -4px;
-  display: inline !important;
-  padding: 8px 10px 6px 10px;
+
+.input-group-addon {
+  top: 0px !important;
+  padding: 5px 10px;
   font-size: 15px;
   font-weight: normal;
   line-height: 1;
@@ -6578,6 +6578,7 @@ div.password-suggestions ul {
   text-align: center;
   background-color: #ecf0f1;
   border: 1px solid #cccccc;
+  border-radius: 4px;
 }
 .datepicker .btn {
   border-top-right-radius: 0;
