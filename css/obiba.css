@@ -9472,9 +9472,8 @@ div.scroll-content-tab {
   vertical-align: top;
 }
 .facet-search-form i.remove-icon {
-  position: absolute;
   z-index: 25;
-  right: 5px;
+  right: 25px;
   top: 10px;
 }
 /*Search page see more/less control**/

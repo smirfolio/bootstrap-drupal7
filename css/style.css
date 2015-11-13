@@ -6567,7 +6567,6 @@ div.password-suggestions ul {
   border-radius: 0px !important;
   margin-right: 5px;
 }
-
 .input-group-addon {
   top: 0px !important;
   padding: 5px 10px;
@@ -6585,4 +6584,8 @@ div.password-suggestions ul {
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
   border-top-left-radius: 0;
+}
+
+.max-width-search {
+  max-width: 200px;
 }
