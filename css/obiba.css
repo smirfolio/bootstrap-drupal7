@@ -10112,3 +10112,7 @@ table.update table.version-latest td.version-links ul {
 table#permissions td.module {
   font-weight: bolder;
 }
+.obiba-comment-top-offset1 {
+  margin-top: 10px;
+}
+/*# sourceMappingURL=obiba.css.map */
