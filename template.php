@@ -396,7 +396,10 @@ function obiba_bootstrap_bootstrap_based_theme() {
  * Implements hook_preprocess_html().
  */
 function obiba_bootstrap_preprocess_html(&$variables) {
-  drupal_add_css('https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,700,700italic', array('type' => 'external'));
+  $cdn_setting = theme_get_setting('bootstrap_cdn_provider', 'obiba_bootstrap');
+  if (empty($cdn_setting)) {
+    drupal_add_css('https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,700,700italic', array('type' => 'external'));
+  }
 }
 
 /**
@@ -451,6 +454,12 @@ function obiba_bootstrap_preprocess_page(&$variables) {
     $variables['classes_array']['title_page'] = $first_letter_title;
   }
   drupal_add_js('misc/jquery.cookie.js', 'file');
+
+  // If cdn provider not set use local js bootstrap not used in production
+  $cdn_setting = theme_get_setting('bootstrap_cdn_provider', 'obiba_bootstrap');
+  if (empty($cdn_setting)) {
+    drupal_add_js(drupal_get_path('theme', 'obiba_bootstrap') . '/bootstrap/js/bootstrap.js');
+  }
   // Add information about the number of sidebars.
   if (!empty($variables['page']['facets']) && !empty($variables['page']['sidebar_second'])) {
     $variables['content_column_class'] = ' class="col-sm-6"';
