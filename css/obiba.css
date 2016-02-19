@@ -10118,8 +10118,19 @@ table#permissions td.module {
 .obiba-comment-top-offset1 {
   margin-top: 10px;
 }
-
 .popover {
   color: #2c3e50;
+}
+.i-obiba-network:before {
+  content: "\e604";
+}
+.i-obiba-study:before {
+  content: "\e603";
+}
+.i-obiba-dataset:before {
+  content: "\e601";
+}
+.i-obiba-variable:before {
+  content: "\e600";
 }
 /*# sourceMappingURL=obiba.css.map */
