@@ -9681,6 +9681,9 @@ div.dataTables_processing {
 .block-content article section td ul li {
   margin-bottom: 10px;
 }
+.block-content article section td ul.list-unstyled {
+  padding-left: 0;
+}
 .block-content article section .col-xs-3 {
   width: 24%;
 }
@@ -9707,6 +9710,7 @@ div.dataTables_processing {
 }
 .block-content table {
   border: 1px solid #dddddd;
+  margin-top: 5px;
 }
 .block-content table td {
   font-size: 13px;
@@ -9721,6 +9725,9 @@ div.dataTables_processing {
 .block-content table thead tr th .popover-content {
   font-size: 13px !important;
   font-weight: normal !important;
+}
+.block-content table.dataTable {
+  margin-top: 0;
 }
 .block-content .modal-body section {
   background-color: #ffffff;
