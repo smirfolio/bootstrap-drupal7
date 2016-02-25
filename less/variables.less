@@ -1,35 +1,31 @@
-//
+// Flatly 3.1.1
 // Variables
 // --------------------------------------------------
+
 
 //== Colors
 //
 //## Gray and brand colors for use across Bootstrap.
 
-@gray-base: #000;
-@gray-darker: lighten(@gray-base, 13.5%);
-// #222
-@gray-dark: #7b8a8b;
-// #333
-@gray: #95a5a6;
-// #555
-@gray-light: #b4bcc2;
-// #999
-@gray-lighter: #ecf0f1;
-// #eee
+@gray-darker: lighten(#000, 13.5%); // #222
+@gray-dark: #7b8a8b; // #333
+@gray: #95a5a6; // #555
+@gray-light: #b4bcc2; // #999
+@gray-lighter: #ecf0f1; // #eee
 
 @brand-primary: #2C3E50;
-@brand-success: #02A676;
+@brand-success: #18BC9C;
 @brand-info: #3498DB;
 @brand-warning: #F39C12;
 @brand-danger: #E74C3C;
 
+
 //== Scaffolding
 //
-//## Settings for some of the most global styles.
+// ## Settings for some of the most global styles.
 
 //** Background color for `<body>`.
-@body-bg: #fafafa;
+@body-bg: #fff;
 //** Global text color on `<body>`.
 @text-color: @brand-primary;
 
@@ -44,36 +40,27 @@
 //
 //## Font, line-height, and color for body text, headings, and more.
 
-@font-family-sans-serif: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+@font-family-sans-serif: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
 @font-family-serif: Georgia, "Times New Roman", Times, serif;
 //** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
 @font-family-monospace: Menlo, Monaco, Consolas, "Courier New", monospace;
 @font-family-base: @font-family-sans-serif;
 
 @font-size-base: 15px;
-@font-size-large: ceil((@font-size-base * 1.25));
-// ~18px
-@font-size-small: ceil((@font-size-base * 0.85));
-// ~12px
+@font-size-large: ceil((@font-size-base * 1.25)); // ~18px
+@font-size-small: ceil((@font-size-base * 0.85)); // ~12px
 
-@font-size-h1: floor((@font-size-base * 2.6));
-// ~36px
-@font-size-h2: floor((@font-size-base * 2.15));
-// ~30px
-@font-size-h3: ceil((@font-size-base * 1.7));
-// ~24px
-@font-size-h4: ceil((@font-size-base * 1.25));
-// ~18px
+@font-size-h1: floor((@font-size-base * 2.6)); // ~36px
+@font-size-h2: floor((@font-size-base * 2.15)); // ~30px
+@font-size-h3: ceil((@font-size-base * 1.7)); // ~24px
+@font-size-h4: ceil((@font-size-base * 1.25)); // ~18px
 @font-size-h5: @font-size-base;
-@font-size-h6: ceil((@font-size-base * 0.85));
-// ~12px
+@font-size-h6: ceil((@font-size-base * 0.85)); // ~12px
 
 //** Unit-less `line-height` for use in components like buttons.
-@line-height-base: 1.428571429;
-// 20/14
+@line-height-base: 1.428571429; // 20/14
 //** Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
-@line-height-computed: floor((@font-size-base * @line-height-base));
-// ~20px
+@line-height-computed: floor((@font-size-base * @line-height-base)); // ~20px
 
 //** By default, this inherits from the `<body>`.
 @headings-font-family: @font-family-base;
@@ -81,23 +68,20 @@
 @headings-line-height: 1.1;
 @headings-color: inherit;
 
-//== Iconography
+//-- Iconography
 //
-//## Specify custom location and filename of the included Glyphicons icon font. Useful for those including Bootstrap via Bower.
+//## Specify custom locations of the include Glyphicons icon font. Useful for those including Bootstrap via Bower.
 
-//** Load fonts from this directory.
 @icon-font-path: "../fonts/";
-//** File name for all font files.
 @icon-font-name: "glyphicons-halflings-regular";
-//** Element ID within SVG icon file.
 @icon-font-svg-id: "glyphicons_halflingsregular";
 
 //== Components
 //
 //## Define common padding and border radius sizes and more. Values based on 14px text and 1.428 line-height (~20px to start).
 
-@padding-base-vertical: 5px;
-@padding-base-horizontal: 10px;
+@padding-base-vertical: 6px;
+@padding-base-horizontal: 16px;
 
 @padding-large-vertical: 18px;
 @padding-large-horizontal: 27px;
@@ -125,6 +109,7 @@
 //** Carets increase slightly in size for larger components.
 @caret-width-large: 5px;
 
+
 //== Tables
 //
 //## Customizes the `.table` component with basic values, each used across all table variations.
@@ -137,13 +122,14 @@
 //** Default background color used for all tables.
 @table-bg: transparent;
 //** Background color used for `.table-striped`.
-@table-bg-accent: #f9f9f9;
+@table-bg-accent: #f3f3f3;
 //** Background color used for `.table-hover`.
 @table-bg-hover: @gray-lighter;
 @table-bg-active: @table-bg-hover;
 
 //** Border color for table and cell borders.
 @table-border-color: @gray-lighter;
+
 
 //== Buttons
 //
@@ -193,24 +179,16 @@
 @input-bg-disabled: @gray-lighter;
 
 //** Text color for `<input>`s
-@input-color: @gray;
+@input-color: @text-color;
 //** `<input>` border color
-@input-border: #ccc;
-
-// TODO: Rename `@input-border-radius` to `@input-border-radius-base` in v4
-//** Default `.form-control` border radius
-// This has no effect on `<select>`s in some browsers, due to the limited stylability of `<select>`s in CSS.
+@input-border: #dce4ec;
+//** `<input>` border radius
 @input-border-radius: @border-radius-base;
-//** Large `.form-control` border radius
-@input-border-radius-large: @border-radius-large;
-//** Small `.form-control` border radius
-@input-border-radius-small: @border-radius-small;
-
 //** Border color for inputs on focus
-@input-border-focus: #66afe9;
+@input-border-focus: @brand-primary;
 
 //** Placeholder text color
-@input-color-placeholder: @gray-light;
+@input-color-placeholder: #acb6c0;
 
 //** Default `.form-control` height
 @input-height-base: (@line-height-computed + (@padding-base-vertical * 2) + 2);
@@ -219,19 +197,14 @@
 //** Small `.form-control` height
 @input-height-small: (floor(@font-size-small * @line-height-small) + (@padding-small-vertical * 2) + 2);
 
-//** `.form-group` margin
-@form-group-margin-bottom: 15px;
-
-@legend-color: @gray-dark;
-@legend-border-color: #e5e5e5;
-
-//** Disabled cursor for form controls and buttons.
-@cursor-disabled: not-allowed;
+@legend-color: @text-color;
+@legend-border-color: transparent;
 
 //** Background color for textual input addons
 @input-group-addon-bg: @gray-lighter;
 //** Border color for textual input addons
 @input-group-addon-border-color: @input-border;
+
 
 //== Dropdowns
 //
@@ -249,23 +222,24 @@
 //** Dropdown link text color.
 @dropdown-link-color: @gray-dark;
 //** Hover color for dropdown links.
-@dropdown-link-hover-color: darken(@gray-dark, 5%);
+@dropdown-link-hover-color: #fff;
 //** Hover background for dropdown links.
-@dropdown-link-hover-bg: #f5f5f5;
+@dropdown-link-hover-bg: @dropdown-link-active-bg;
 
 //** Active dropdown menu item text color.
-@dropdown-link-active-color: @component-active-color;
+@dropdown-link-active-color: #fff;
 //** Active dropdown menu item background color.
 @dropdown-link-active-bg: @component-active-bg;
 
 //** Disabled dropdown menu item background color.
-@dropdown-link-disabled-color: @gray-light;
+@dropdown-link-disabled-color: @text-muted;
 
 //** Text color for headers within dropdown menus.
-@dropdown-header-color: @gray-light;
+@dropdown-header-color: @text-muted;
 
-//** Deprecated `@dropdown-caret-color` as of v3.1.0
+// Note: Deprecated @dropdown-caret-color as of v3.1.0
 @dropdown-caret-color: #000;
+
 
 //-- Z-index master list
 //
@@ -276,49 +250,46 @@
 
 @zindex-navbar: 1000;
 @zindex-dropdown: 1000;
-@zindex-popover: 1060;
-@zindex-tooltip: 1070;
+@zindex-popover: 1010;
+@zindex-tooltip: 1030;
 @zindex-navbar-fixed: 1030;
 @zindex-modal-background: 1040;
 @zindex-modal: 1050;
+
 
 //== Media queries breakpoints
 //
 //## Define the breakpoints at which your layout will change, adapting to different screen sizes.
 
 // Extra small screen / phone
-//** Deprecated `@screen-xs` as of v3.0.1
+// Note: Deprecated @screen-xs and @screen-phone as of v3.0.1
 @screen-xs: 480px;
-//** Deprecated `@screen-xs-min` as of v3.2.0
 @screen-xs-min: @screen-xs;
-//** Deprecated `@screen-phone` as of v3.0.1
 @screen-phone: @screen-xs-min;
 
 // Small screen / tablet
-//** Deprecated `@screen-sm` as of v3.0.1
+// Note: Deprecated @screen-sm and @screen-tablet as of v3.0.1
 @screen-sm: 768px;
 @screen-sm-min: @screen-sm;
-//** Deprecated `@screen-tablet` as of v3.0.1
 @screen-tablet: @screen-sm-min;
 
 // Medium screen / desktop
-//** Deprecated `@screen-md` as of v3.0.1
+// Note: Deprecated @screen-md and @screen-desktop as of v3.0.1
 @screen-md: 992px;
 @screen-md-min: @screen-md;
-//** Deprecated `@screen-desktop` as of v3.0.1
 @screen-desktop: @screen-md-min;
 
 // Large screen / wide desktop
-//** Deprecated `@screen-lg` as of v3.0.1
-@screen-lg: 1200px;
+// Note: Deprecated @screen-lg and @screen-lg-desktop as of v3.0.1
+@screen-lg: 1400px;
 @screen-lg-min: @screen-lg;
-//** Deprecated `@screen-lg-desktop` as of v3.0.1
 @screen-lg-desktop: @screen-lg-min;
 
 // So media queries don't overlap when required, provide a maximum
 @screen-xs-max: (@screen-sm-min - 1);
 @screen-sm-max: (@screen-md-min - 1);
 @screen-md-max: (@screen-lg-min - 1);
+
 
 //== Grid system
 //
@@ -349,7 +320,7 @@
 @container-md: @container-desktop;
 
 // Large screen / wide desktop
-@container-large-desktop: 80%;//((1140px + @grid-gutter-width));
+@container-large-desktop: ((1240px + @grid-gutter-width));
 //** For `@screen-lg-min` and up.
 @container-lg: @container-large-desktop;
 
@@ -418,7 +389,7 @@
 //##
 
 //=== Shared nav styles
-@nav-link-padding: 5px 10px;
+@nav-link-padding: 10px 15px;
 @nav-link-hover-bg: @gray-lighter;
 
 @nav-disabled-link-color: @gray-light;
@@ -427,41 +398,44 @@
 @nav-open-link-hover-color: #fff;
 
 //== Tabs
-@nav-tabs-border-color: #ddd;
+@nav-tabs-border-color: @gray-lighter;
 
 @nav-tabs-link-hover-border-color: @gray-lighter;
 
 @nav-tabs-active-link-hover-bg: @body-bg;
-@nav-tabs-active-link-hover-color: @gray;
-@nav-tabs-active-link-hover-border-color: #ddd;
+@nav-tabs-active-link-hover-color: @brand-primary;
+@nav-tabs-active-link-hover-border-color: @gray-lighter;
 
-@nav-tabs-justified-link-border-color: #ddd;
+@nav-tabs-justified-link-border-color: @gray-lighter;
 @nav-tabs-justified-active-link-border-color: @body-bg;
 
 //== Pills
 @nav-pills-border-radius: @border-radius-base;
-@nav-pills-active-link-hover-bg: @brand-info;
+@nav-pills-active-link-hover-bg: @component-active-bg;
 @nav-pills-active-link-hover-color: @component-active-color;
+
 
 //== Pagination
 //
 //##
 
-@pagination-color: @link-color;
-@pagination-bg: #fff;
-@pagination-border: #ddd;
+@pagination-color: #fff;
+@pagination-bg: @brand-success;
+@pagination-border: transparent;
 
-@pagination-hover-color: @link-hover-color;
-@pagination-hover-bg: @gray-lighter;
-@pagination-hover-border: #ddd;
+@pagination-hover-color: #fff;
+@pagination-hover-bg: darken(@brand-success, 15%);
+@pagination-hover-border: transparent;
 
 @pagination-active-color: #fff;
-@pagination-active-bg: @brand-primary;
-@pagination-active-border: @brand-primary;
+@pagination-active-bg: darken(@brand-success, 15%);
+@pagination-active-border: transparent;
 
-@pagination-disabled-color: @gray-light;
-@pagination-disabled-bg: #fff;
-@pagination-disabled-border: #ddd;
+@pagination-disabled-color: @gray-lighter;
+@pagination-disabled-bg: lighten(@brand-success, 15%);
+;
+@pagination-disabled-border: transparent;
+
 
 //== Pager
 //
@@ -493,21 +467,26 @@
 //
 //## Define colors for form feedback states and, by default, alerts.
 
-@state-success-text: @brand-success;
-@state-success-bg: #fff;
+@state-success-text: #fff;
+@state-success-bg: @brand-success;
 @state-success-border: @brand-success;
 
-@state-info-text: @brand-info;
-@state-info-bg: #fff;
+@state-info-text: #fff;
+@state-info-bg: @brand-info;
 @state-info-border: @brand-info;
 
-@state-warning-text: @brand-warning;
-@state-warning-bg: #fff;
+@state-warning-text: #fff;
+@state-warning-bg: @brand-warning;
 @state-warning-border: @brand-warning;
 
-@state-danger-text: @brand-danger;
-@state-danger-bg: #fff;
+@state-danger-text: #fff;
+@state-danger-bg: @brand-danger;
 @state-danger-border: @brand-danger;
+
+@obiba-state-success-text: #18bc9c;
+@obiba-state-danger-text: #a94442;
+@obiba-state-warning-text: @brand-warning;
+
 
 //== Tooltips
 //
@@ -516,15 +495,15 @@
 //** Tooltip max width
 @tooltip-max-width: 200px;
 //** Tooltip text color
-@tooltip-color: #000000;
+@tooltip-color: #fff;
 //** Tooltip background color
-@tooltip-bg: rgba(249, 248, 237, 0.90);
+@tooltip-bg: rgba(0, 0, 0, .9);
 @tooltip-opacity: .9;
 
 //** Tooltip arrow width
 @tooltip-arrow-width: 5px;
 //** Tooltip arrow color
-@tooltip-arrow-color: #ccc;
+@tooltip-arrow-color: @tooltip-bg;
 
 //== Popovers
 //
@@ -545,7 +524,7 @@
 //** Popover arrow width
 @popover-arrow-width: 10px;
 //** Popover arrow color
-@popover-arrow-color: @popover-bg;
+@popover-arrow-color: #fff;
 
 //** Popover outer arrow width
 @popover-arrow-outer-width: (@popover-arrow-width + 1);
@@ -858,3 +837,21 @@
 @facet_line_height: 15px;
 
 @block_title_background_color: #F2F2F2;
+
+//** Horizontal offset for forms and lists.
+@component-offset-horizontal: 180px;
+
+//** Disabled cursor for form controls and buttons.
+@cursor-disabled: not-allowed;
+
+// TODO: Rename `@input-border-radius` to `@input-border-radius-base` in v4
+//** Default `.form-control` border radius
+// This has no effect on `<select>`s in some browsers, due to the limited stylability of `<select>`s in CSS.
+@input-border-radius: @border-radius-base;
+//** Large `.form-control` border radius
+@input-border-radius-large: @border-radius-large;
+//** Small `.form-control` border radius
+@input-border-radius-small: @border-radius-small;
+
+//** `.form-group` margin
+@form-group-margin-bottom: 15px;
