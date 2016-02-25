@@ -1,0 +1,8 @@
+{
+  "name": "Bootstrap-drupal7",
+  "description": "Mica client bootstrap Drupal template",
+  "license": "MIT",
+  "dependencies": {
+    "bootswatch": "3.3.6+1"
+  }
+}
