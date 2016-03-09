@@ -430,7 +430,7 @@ function obiba_bootstrap_letters_badge_title() {
       return 'taxonomy';
     }
 
-    elseif (strstr($current_item[1], 'search')) {
+    elseif (strstr($current_item[1], 'search') || strstr($current_item[1], 'repository')) {
       return 'search-icon';
     }
     else {
