@@ -138,7 +138,7 @@
           </li>
         </ul>
       <?php else: ?>
-        <form class="navbar-form navbar-right">
+        <div class="navbar-btn navbar-right">
           <?php print l(variable_get_value('access_signup_button'),
             (module_exists('obiba_agate') ? 'agate' : 'user') . '/register/',
             array(
@@ -149,8 +149,9 @@
             'attributes' => array('class' => 'btn btn-default'),
             'query' => array('destination' => current_path()),
           )) ?>
-        </form>
+        </div>
       <?php endif; ?>
+
     </div>
   </div>
 </header>
