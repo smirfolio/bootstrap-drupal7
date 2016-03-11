@@ -7053,10 +7053,6 @@ aside[class^="col-"],
 aside[class*=" col-"] {
   padding: 0;
 }
-.breadcrumb {
-  padding: 8px 0;
-  background-color: transparent;
-}
 .label a {
   color: #ffffff;
 }
