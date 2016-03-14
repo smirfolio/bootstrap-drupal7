@@ -10636,6 +10636,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+.i-obiba-x-large {
+  vertical-align: middle;
+}
 .i-obiba-list-item:before {
   content: "\e606";
 }
