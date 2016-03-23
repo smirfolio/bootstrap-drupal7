@@ -7415,6 +7415,12 @@ div.password-suggestions ul {
     margin-top: -5px;
   }
 }
+.alert-fixed-position {
+  top: 4em !important;
+}
+.alert-growl-container {
+  top: 4em !important;
+}
 #block-system-navigation h4 {
   line-height: 20px;
   margin-bottom: 0;
