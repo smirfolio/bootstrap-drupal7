@@ -1,38 +1,163 @@
 // copied from bootstrap/bootstrap_subtheme/less/overrides.less
 
 // Media query variables.
-@mobile: ~"screen and (max-width: @{screen-xs-min})";
-@tablet: ~"screen and (min-width: @{screen-sm-min})";
-@normal: ~"screen and (min-width: @{screen-md-min})";
-@wide: ~"screen and (min-width: @{screen-lg-min})";
-@errorText : ~"(color: #C7254E)";
-@errorBorder: ~"(color: #C7254E)";
-
-// Border Radius
-.border-radius(@radius) {
-  -webkit-border-radius: @radius;
-  -moz-border-radius: @radius;
-  border-radius: @radius;
-}
+@tablet:  ~"screen and (min-width: @{screen-sm-min})";
+@normal:  ~"screen and (min-width: @{screen-md-min})";
+@wide:    ~"screen and (min-width: @{screen-lg-min})";
 
 // Drop shadows.
 .box-shadow(@shadow) {
   -webkit-box-shadow: @shadow;
-  -moz-box-shadow: @shadow;
-  box-shadow: @shadow;
+     -moz-box-shadow: @shadow;
+          box-shadow: @shadow;
 }
 
-// Box sizing.
-.box-sizing(@boxmodel) {
-  -webkit-box-sizing: @boxmodel;
-  -moz-box-sizing: @boxmodel;
-  box-sizing: @boxmodel;
+html {
+  &.overlay-open .navbar-fixed-top {
+    z-index: 400;
+  }
+  &.js {
+    // Collapsible fieldsets.
+    fieldset.collapsed {
+      border-left-width: 1px;
+      border-right-width: 1px;
+      height: auto;
+    }
+    // Throbbers.
+    input.form-autocomplete {
+      background-image: none;
+    }
+    // Autocomplete.
+    input.form-autocomplete {
+      background-image: none;
+    }
+    // Autocomplete (fallback throbber, no icon).
+    .autocomplete-throbber {
+      background-position: 100% 2px;
+      background-repeat: no-repeat;
+      display: inline-block;
+      height: 15px;
+      margin: 2px 0 0 2px;
+      width: 15px;
+    }
+    .autocomplete-throbber.throbbing {
+      background-position: 100% -18px;
+    }
+  }
+}
+body {
+  // Fix horizontal scrolling on iOS devices.
+  // http://drupal.org/node/1870076
+  position: relative;
+  &.admin-expanded.admin-vertical.admin-nw .navbar,
+  &.admin-expanded.admin-vertical.admin-sw .navbar {
+    margin-left: 260px;
+  }
+  // Add padding to body if various toolbar or navbars are fixed on top.
+  &.navbar-is-fixed-top {
+    padding-top: 64px !important;
+  }
+  &.navbar-is-fixed-bottom {
+    padding-bottom: 64px !important;
+  }
+  &.toolbar {
+    padding-top: 30px !important;
+    .navbar-fixed-top {
+      top: 30px;
+    }
+    &.navbar-is-fixed-top {
+      padding-top: 94px !important;
+    }
+  }
+  &.toolbar-drawer {
+    padding-top: 64px !important;
+    .navbar-fixed-top {
+      top: 64px;
+    }
+    &.navbar-is-fixed-top {
+      padding-top: 128px !important;
+    }
+  }
+  // Admin_menu toolbar.
+  &.admin-menu {
+    .navbar-fixed-top {
+      top: 29px;
+    }
+    &.navbar-is-fixed-top {
+      padding-top: 93px !important;
+    }
+  }
+  div#admin-toolbar {
+    z-index: 1600;
+  }
+  // Override box-shadow styles on all "admin" menus.
+  #toolbar, #admin-menu, #admin-toolbar {
+    .box-shadow(none);
+  }
+  // Override #admin-menu style.
+  #admin-menu {
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    z-index: 1600;
+    .dropdown li {
+      line-height: normal;
+    }
+  }
 }
 
+// Default navbar.
+.navbar {
+  &.container {
+    @media @tablet {
+      max-width: ((@container-sm - @grid-gutter-width));
+    }
+    @media @normal {
+      max-width: ((@container-md - @grid-gutter-width));
+    }
+    @media @wide {
+      max-width: ((@container-lg - @grid-gutter-width));
+    }
+  }
+  &.container,
+  &.container-fluid {
+    margin-top: 20px;
+  }
+  &.container > .container,
+  &.container-fluid > .container-fluid {
+    margin: 0;
+    padding: 0;
+    width: auto;
+  }
+}
 
+// Adjust z-index of core components.
+#overlay-container,
+.overlay-modal-background,
+.overlay-element {
+  z-index: 1500;
+}
+#toolbar {
+  z-index: 1600;
+}
+// Adjust z-index of bootstrap modals
+.modal {
+  z-index: 1620;
+}
+.modal-dialog {
+  z-index: 1630;
+}
+.ctools-modal-dialog .modal-body {
+  width: 100% !important;
+  overflow: auto;
+}
+.modal-backdrop {
+  z-index: 1610;
+}
 .footer {
   margin-top: 45px;
-  padding: 35px 0 36px;
+  padding-top: 35px;
+  padding-bottom: 36px;
   border-top: 1px solid #E5E5E5;
 }
 
@@ -43,115 +168,83 @@
   width: 1px;
 }
 
-// Branding
+// Branding.
 .navbar .logo {
-  margin-top: 15px;
-  margin-right: 10px;
-
-  img {
-    width: 30px;
-    height: 30px;
+  margin-right: -15px;
+  padding-left: 15px;
+  padding-right: 15px;
+  @media @tablet {
+    margin-right: 0;
+    padding-left: 0;
   }
-
 }
 
-#site-name {
-  line-height: 1;
-  margin: 0;
+// Navigation.
+ul.secondary {
+  float: left;
+  @media @tablet {
+    float: right;
+  }
 }
 
-// Page header
+// Page header.
 .page-header {
   margin-top: 0;
-  border: none;
 }
 
-section[class^="col-"], section[class*=" col-"], aside[class^="col-"], aside[class*=" col-"] {
-  padding: 0;
-}
-
-// Labels
-.label a {
-  color: @label-color;
-}
-
-// Navigation
-.region-navigation, .region-header {
-  .pull-right;
-
-  .block-title {
-    display: none;
-  }
-
-  label {
-    font-weight: normal;
-    font-size: smaller;
-    margin-bottom: 2px;
-  }
-
-  input[type="text"], input[type="password"] {
-    width: 100px;
-    max-width: 100px;
-    height: 25px;
-    padding: 6px;
-    font-size: 12px;
-  }
-
-  .btn {
-    font-size: smaller;
-    height: 25px;
-    padding: 0 5px 0 5px;
-    margin-bottom: 2px;
-  }
-
-  .form-item {
-    display: inline-block;
-    margin-bottom: 2px;
+// Blocks
+.block {
+  &:first-child h2.block-title {
+    margin-top: 0;
   }
 }
 
-// Side bar first
-.region.region-sidebar-first.well {
-  margin-right: 20px;
-}
-
-// Paragraphs
+// Paragraphs.
 p:last-child {
-  margin-bottom: (@line-height-computed / 2);
+  margin-bottom: 0;
 }
 
-
+// Help region.
+.region-help {
+  > .glyphicon {
+    font-size: @font-size-large;
+    float: left;
+    margin: -0.05em 0.5em 0 0;
+  }
+  .block {
+    overflow: hidden;
+  }
+}
 
 // Search form.
 form#search-block-form {
   margin: 0;
 }
-
 .navbar #block-search-form {
-  float: left;
+  float: none;
   margin: 5px 0 5px 5px;
-  @media @mobile, @tablet {
-    float: none;
+  @media @normal {
+    float: right;
+  }
+
+  .input-group-btn {
+    width: auto;
   }
 }
-
-fieldset.search-advanced {
-  padding-bottom: 1.5em;
-  margin-top: 1em;
-}
-
 .navbar-search .control-group {
-  margin-bottom: 0px;
+  margin-bottom:0px;
 }
 
 // Action Links
 ul.action-links {
-  margin: 0;
+  margin: @padding-base-horizontal 0;
+  padding: 0;
   li {
     display: inline;
-    padding-right: 0.8em;
+    margin: 0;
+    padding: 0 @padding-base-vertical 0 0;
   }
-  [class^="icon-"], [class*=" icon-"] {
+  .glyphicon {
     padding-right: 0.5em;
   }
 }
@@ -161,79 +254,143 @@ input, textarea, select, .uneditable-input {
   max-width: 100%;
   width: auto;
 }
-
-select, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input {
-  .box-sizing(border-box);
-  height: auto;
-}
-
 input.error {
-  color: @errorText;
-  border-color: @errorBorder;
+  color: @state-danger-text;
+  border-color: @state-danger-border;
 }
-
-.form-type-checkbox input, .form-type-radio input {
+fieldset legend.panel-heading {
   float: left;
+  line-height: 1em;
+  margin: 0;
 }
-
-.form-actions {
+fieldset .panel-body {
+  clear: both;
+  display: inherit;
+}
+fieldset .panel-heading a.panel-title {
+  color: inherit;
+  display: block;
+  margin: -10px -15px;
+  padding: 10px 15px;
+  &:hover {
+    text-decoration: none;
+  }
+}
+.form-group:last-child,
+.panel:last-child {
+  margin-bottom: 0;
+}
+.form-horizontal .form-group {
+  margin-left: 0;
+  margin-right: 0;
+}
+.form-actions{
   clear: both;
 }
-
-.resizable-textarea textarea {
-  .border-radius(~"4px 4px 0 0");
+.managed-files.table {
+  td:first-child {
+    width: 100%;
+  }
 }
-
-.help-block, .control-group .help-inline {
-  // color: @placeholderText;
-  font-size: 12px;
-  padding: 0;
-  .description + &,
-  .checkbox + &,
-  .form-type-checkbox + &,
-  .form-type-radio + &,
-  .form-file + &,
-  .resizable-textarea + & {
+div.image-widget-data {
+  float: none;
+  overflow: hidden;
+}
+table.sticky-header {
+  z-index: 1;
+}
+.resizable-textarea textarea {
+  border-radius: @border-radius-base @border-radius-base 0 0;
+}
+.text-format-wrapper {
+  // Use same value as .form-group.
+  margin-bottom: 15px;
+  > .form-type-textarea,
+  .filter-wrapper {
+    margin-bottom: 0;
+  }
+}
+.filter-wrapper {
+  border-radius: 0 0 @border-radius-base @border-radius-base;
+  .panel-body {
+    padding: 7px;
+  }
+  .form-type-select {
+    min-width: 30%;
+    .filter-list {
+      width: 100%;
+    }
+  }
+}
+.filter-help {
+  margin-top: 5px;
+  text-align: center;
+  @media @tablet {
+    float: right;
+  }
+  .glyphicon {
+    margin: 0 5px 0 0;
+    vertical-align: text-top;
+  }
+}
+.radio, .checkbox {
+  &:first-child {
     margin-top: 0;
   }
-}
-
-.input-append {
-  .box-sizing(border-box);
-  padding-right: 40px;
-  width: 100%;
-  input, textarea, select, .uneditable-input {
-    width: 100% !important;
+  &:last-child {
+    margin-bottom: 0;
   }
 }
-
-// Inline containers.
-.container-inline div, .container-inline label {
+.help-block, .control-group .help-inline {
+  color: @gray-light;
+  font-size: 12px;
+  margin: 5px 0 10px;
+  padding: 0;
+}
+.panel-heading {
   display: block;
 }
-
-.control-group.error {
-  background: none;
-  label, .control-label {
-    color: @errorText;
-    font-weight: 600;
-  }
-  .help-block, .help-inline {
-    //    color: @placeholderText;
-  }
+a.tabledrag-handle .handle {
+  height: auto;
+  width: auto;
 }
 
-.help-inline {
-  //font-size: 12px;
-  color: lighten(@text-color, 25%);
+// Error containers.
+.error {
+  color: @state-danger-text;
+}
+div.error,
+table tr.error {
+  background-color: @state-danger-bg;
+  color: @state-danger-text;
+}
+.form-group.error,
+.form-group.has-error {
+  background: none;
+  label, .control-label {
+    color: @state-danger-text;
+    font-weight: 600;
+  }
+  input, textarea, select, .uneditable-input {
+    color: @input-color;
+  }
+  .help-block, .help-inline {
+    color: @text-muted;
+  }
 }
 
 // Lists
+.nav-tabs {
+  margin-bottom: 10px;
+}
 ul li.collapsed,
 ul li.expanded,
 ul li.leaf {
   list-style: none;
   list-style-image: none;
+}
+.tabs--secondary {
+  margin: 0 0 10px;
 }
 
 // Submitted
@@ -244,213 +401,441 @@ ul li.leaf {
   color: #777;
 }
 
-// Password strength indicator.
-.password-strength {
-  width: 17em;
-  float: right; /* LTR */
-  margin-top: 1.4em;
-}
-
-.password-strength-title {
-  display: inline;
-}
-
-.password-strength-text {
-  float: right; /* LTR */
-  font-weight: bold;
-}
-
-input.password-confirm,
-input.password-field {
-  width: 16em;
-  margin-bottom: 0.4em;
-}
-
-div.password-confirm {
-  float: right; /* LTR */
-  margin-top: 1.5em;
-  visibility: hidden;
-  width: 17em;
-}
-
-div.form-item div.password-suggestions {
-  padding: 0.2em 0.5em;
-  margin: 0.7em 0;
-  width: 38.5em;
-  border: 1px solid #B4B4B4;
-}
-
-div.password-suggestions ul {
-  margin-bottom: 0;
-}
-
-.confirm-parent,
-.password-parent {
-  clear: left; /* LTR */
-  margin: 0;
-  width: 36.3em;
-}
-
-// Progress bar.
-.progress-wrapper .progress {
-  margin-bottom: 10px;
-  .bar {
-    border: 0 none;
-    margin: 0;
+// Password strength/match.
+.form-type-password-confirm {
+  position: relative;
+  label {
+    display: block;
+    .label {
+      float: right;
+    }
+  }
+  .password-help {
+    padding-left: 2em;
+    @media (min-width: @screen-sm-min) {
+      border-left: 1px solid @table-border-color;
+      left: percentage((6/12));
+      margin-left: (@grid-gutter-width / 2);
+      position: absolute;
+    }
+    @media (min-width: @screen-md-min) {
+      left: percentage((4/12));
+    }
+  }
+  .progress {
+    background: transparent;
+    -moz-border-radius: 0 0 5px 5px;
+    -webkit-border-radius: 0 0 5px 5px;
+    border-radius: 0 0 5px 5px;
+    .box-shadow(none);
+    height: 4px;
+    margin: -5px 0px 0;
+  }
+  .form-type-password {
+    clear: left;
+  }
+  .form-control-feedback {
+    right: 15px;
+  }
+  .help-block {
+    clear: both;
   }
 }
 
 // Views AJAX pager.
-.pagination ul > li > a {
+ul.pagination li > a {
   &.progress-disabled {
     float: left;
   }
-  .throbber {
-    margin: 0 -0.25em 0 0.5em;
-    position: relative;
-    top: 1px;
+}
+
+// Autocomplete and throbber
+.form-autocomplete {
+  .glyphicon {
+    color: @gray-light;
+    font-size: 120%;
+    &.glyphicon-spin {
+      color: @brand-primary;
+    }
+  }
+  .input-group-addon {
+    background-color: rgb(255, 255, 255);
   }
 }
 
-.prettyprint {
-  min-width: 250px;
-  padding: 8px;
-  background-color: #f7f7f9;
-  border: 1px solid #e1e1e8;
+// AJAX "Progress bar".
+.ajax-progress-bar {
+  border-radius: 0 0 @border-radius-base @border-radius-base;
+  border: 1px solid @input-group-addon-border-color;
+  margin: -1px 0 0;
+  padding: @padding-base-vertical @padding-base-horizontal;
+  width: 100%;
+  .progress {
+    height: 8px;
+    margin: 0;
+  }
+  .percentage,
+  .message {
+    color: @text-muted;
+    font-size: @font-size-small;
+    line-height: 1em;
+    margin: 5px 0 0;
+    padding: 0;
+  }
 }
 
-.col-sm-3 {
+.glyphicon-spin {
+  display: inline-block;
+  -moz-animation: spin 1s infinite linear;
+  -o-animation: spin 1s infinite linear;
+  -webkit-animation: spin 1s infinite linear;
+  animation: spin 1s infinite linear;
+}
+a .glyphicon-spin {
+  display: inline-block;
+  text-decoration: none;
+}
+@-moz-keyframes spin {
+  0% {
+    -moz-transform: rotate(0deg);
+  }
+  100% {
+    -moz-transform: rotate(359deg);
+  }
+}
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+  }
+}
+@-o-keyframes spin {
+  0% {
+    -o-transform: rotate(0deg);
+  }
+  100% {
+    -o-transform: rotate(359deg);
+  }
+}
+@-ms-keyframes spin {
+  0% {
+    -ms-transform: rotate(0deg);
+  }
+  100% {
+    -ms-transform: rotate(359deg);
+  }
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(359deg);
+  }
+}
+
+/**
+ * Missing Bootstrap 2 tab styling.
+ * @see http://stackoverflow.com/questions/18432577/stacked-tabs-in-bootstrap-3
+ * @see http://bootply.com/74926
+ */
+.tabbable {
+  margin-bottom: 20px;
+}
+.tabs-below, .tabs-left, .tabs-right {
+  > .nav-tabs {
+    border-bottom: 0;
+    .summary {
+      color: @nav-disabled-link-color;
+      font-size: @font-size-small;
+    }
+  }
+}
+.tab-pane > .panel-heading {
+  display: none;
+}
+.tab-content > .active {
+  display: block;
+}
+
+// Below.
+.tabs-below {
+  > .nav-tabs {
+    border-top: 1px solid @nav-tabs-border-color;
+    > li {
+      margin-top: -1px;
+      margin-bottom: 0;
+      > a {
+        border-radius: 0 0 @border-radius-base @border-radius-base;
+        &:hover,
+        &:focus {
+          border-top-color: @nav-tabs-border-color;
+          border-bottom-color: transparent;
+        }
+      }
+    }
+    > .active {
+      > a,
+      > a:hover,
+      > a:focus {
+        border-color: transparent @nav-tabs-border-color @nav-tabs-border-color @nav-tabs-border-color;
+      }
+    }
+  }
+}
+
+// Left and right tabs.
+.tabs-left,
+.tabs-right {
+  > .nav-tabs {
+    padding-bottom: 20px;
+    width: 220px;
+    > li {
+      float: none;
+      &:focus {
+        outline: 0;
+      }
+      > a {
+        margin-right: 0;
+        margin-bottom: 3px;
+        &:focus {
+          outline: 0;
+        }
+      }
+    }
+  }
+  > .tab-content {
+    border-radius: 0 @border-radius-base @border-radius-base @border-radius-base;
+    .box-shadow(0 1px 1px rgba(0,0,0,.05));
+    border: 1px solid @nav-tabs-border-color;
+    overflow: hidden;
+    padding: 10px 15px;
+  }
+}
+
+// Left tabs.
+.tabs-left {
+  > .nav-tabs {
+    float: left;
+    margin-right: -1px;
+    > li > a {
+      border-radius: @border-radius-base 0 0 @border-radius-base;
+      &:hover,
+      &:focus {
+        border-color: @nav-tabs-link-hover-border-color @nav-tabs-border-color @nav-tabs-link-hover-border-color @nav-tabs-link-hover-border-color;
+      }
+    }
+    > .active > a,
+    > .active > a:hover,
+    > .active > a:focus {
+      border-color: @nav-tabs-border-color transparent @nav-tabs-border-color @nav-tabs-border-color;
+      .box-shadow(-1px 1px 1px rgba(0,0,0,.05));
+    }
+  }
+}
+
+// Right tabs.
+.tabs-right {
+  > .nav-tabs {
+    float: right;
+    margin-left: -1px;
+    > li > a {
+      border-radius: 0 @border-radius-base @border-radius-base 0;
+      &:hover,
+      &:focus {
+        border-color: @nav-tabs-link-hover-border-color @nav-tabs-link-hover-border-color @nav-tabs-link-hover-border-color @nav-tabs-border-color;
+        .box-shadow(1px 1px 1px rgba(0,0,0,.05));
+      }
+    }
+    > .active > a,
+    > .active > a:hover,
+    > .active > a:focus {
+      border-color: @nav-tabs-border-color @nav-tabs-border-color @nav-tabs-border-color transparent;
+    }
+  }
+}
+
+// Checkbox cell fix.
+th.checkbox,
+td.checkbox,
+th.radio,
+td.radio {
+  display: table-cell;
+}
+
+// Views UI fixes.
+.views-display-settings {
+  .label {
+    font-size: 100%;
+    color:#666666;
+  }
+  .footer {
+    padding:0;
+    margin:4px 0 0 0;
+  }
+}
+.views-exposed-form .views-exposed-widget .btn {
+  margin-top: 1.8em;
+}
+
+// Radio and checkbox in table fixes
+table {
+  .radio input[type="radio"],
+  .checkbox input[type="checkbox"] {
+    max-width: inherit;
+  }
+}
+
+// Exposed filters
+.form-horizontal .form-group label {
   position: relative;
   min-height: 1px;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 7px;
+  padding-left:  (@grid-gutter-width / 2);
+  padding-right: (@grid-gutter-width / 2);
+  text-align: right;
+
+  @media (min-width: @screen-sm-min) {
+    float: left;
+    width: percentage((2 / @grid-columns));
+  }
 }
 
-.header-fixed {
-  width: 100%
+// Treat all links inside alert as .alert-link
+.alert a {
+  font-weight: @alert-link-font-weight;
+}
+.alert-success a {
+  color: darken(@alert-success-text, 10%);
+}
+.alert-info a {
+  color: darken(@alert-info-text, 10%);
+}
+.alert-warning a {
+  color: darken(@alert-warning-text, 10%);
+}
+.alert-danger a {
+  color: darken(@alert-danger-text, 10%);
 }
 
-.header-fixed > thead,
-.header-fixed > tbody,
-.header-fixed > thead > tr,
-.header-fixed > tbody > tr,
-.header-fixed > thead > tr > th,
-.header-fixed > tbody > tr > td {
+// Override image module.
+div.image-style-new,
+div.image-style-new div {
   display: block;
 }
-
-.header-fixed > tbody > tr:after,
-.header-fixed > thead > tr:after {
-  content: ' ';
-  display: block;
-  visibility: hidden;
-  clear: both;
+div.image-style-new div.input-group {
+  display: table;
 }
 
-.header-fixed > tbody {
-  overflow-y: auto;
-  max-height: 319px; // 11 row of 29px
+td.module,
+.table-striped>tbody>tr:nth-child(odd)>td.module,
+.table>tbody>tr>td.module {
+  background: @table-border-color;
+  font-weight: 700;
 }
 
-.header-fixed > tbody > tr > td,
-.header-fixed > thead > tr > th {
-  height: 30px;
-  width: 33.33%;
-  float: left;
-}
-
-#obiba-mica-search-form {
-  .form-item {
-    display: inline;
+// Book module.
+.book-toc > .dropdown-menu {
+  overflow: hidden;
+  > .dropdown-header {
+    white-space: nowrap;
   }
-  .form-control {
-    display: inline;
-    width: auto !important;
-    height: 34px;
-    padding: 6px 12px;
-    font-size: 14px;
-    line-height: 1.42857143;
-    color: #000000;
-    background-color: #fff;
-    background-image: none;
-    border: 1px solid #ccc;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
-    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
-    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-    border-radius: 0px !important;
-    margin-right: 5px;
+  > li:nth-child(1) > a {
+    font-weight: bold;
   }
-}
-
-.input-group-addon {
-  top: 0px !important;
-  padding: 5px 10px;
-  font-size: 15px;
-  font-weight: normal;
-  line-height: 1;
-  color: #95a5a6;
-  text-align: center;
-  background-color: #ecf0f1;
-  border: 1px solid #cccccc;
-  border-radius: 4px;
-}
-
-.datepicker .btn {
-  .border-top-radius(0);
-  .border-right-radius(0);
-  .border-bottom-radius(0);
-  .border-left-radius(0);
-}
-
-.max-width-search {
-  max-width: 200px;
-}
-
-@media (max-width: 1023px) {
-  .navbar-header {
-    float: none;
-  }
-  .navbar-left,.navbar-right {
-    float: none !important;
-  }
-  .navbar-toggle {
+  .dropdown-menu {
+    .box-shadow(none);
+    border: 0;
     display: block;
-  }
-  .navbar-collapse {
-    border-top: 1px solid transparent;
-    box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
-  }
-  .navbar-fixed-top {
-    top: 0;
-    border-width: 0 0 1px;
-  }
-  .navbar-collapse.collapse {
-    display: none!important;
-  }
-  .navbar-nav {
-    float: none!important;
-    margin-top: 7.5px;
-  }
-  .navbar-nav>li {
-    float: none;
-  }
-  .navbar-nav>li>a {
-    padding-top: 10px;
-    padding-bottom: 10px;
-  }
-  .collapse.in{
-    display:block !important;
-  }
-
-  .navbar-btn.navbar-right {
-    margin-top: -5px;
+    font-size: @font-size-small;
+    margin: 0;
+    padding: 0;
+    position: static;
+    width: 100%;
+    > li {
+      padding-left: 20px;
+      > a {
+        margin-left: -40px;
+        padding-left: 60px;
+      }
+    }
   }
 }
 
-.alert-fixed-position {
-  top: 4em !important;
+// Features module.
+#features-filter .form-item.form-type-checkbox {
+  padding-left: 20px;
+}
+fieldset.features-export-component {
+  font-size: @font-size-small;
+  html.js #features-export-form &, & {
+    margin: 0 0 (@line-height-computed / 2);
+  }
+  .panel-heading {
+    padding: 5px 10px;
+    a.panel-title {
+      font-size: @font-size-small;
+      font-weight: 500;
+      margin: -5px -10px;
+      padding: 5px 10px;
+    }
+  }
+  .panel-body {
+    padding: 0 10px;
+  }
+}
+div.features-export-list {
+  margin: -11px 0 10px;
+  padding: 0 10px;
 }
 
-.alert-growl-container {
-  top: 4em !important;
+fieldset.features-export-component .component-select ,
+div.features-export-list {
+  .form-type-checkbox {
+    line-height: 1em;
+    margin: 5px 5px 5px 0 !important;
+    min-height: 0;
+    padding: 3px 3px 3px 25px!important;
+    input[type=checkbox] {
+      margin-top: 0;
+    }
+  }
+}
+
+// Navbar module.
+body.navbar-is-fixed-top.navbar-administration.navbar-horizontal.navbar-tray-open .navbar-fixed-top {
+  top: 79px;
+}
+body.navbar-is-fixed-top.navbar-administration .navbar-fixed-top {
+  top: 39px;
+}
+/* Small devices (tablets, 768px and up) */
+@media (min-width: @screen-sm-min) {
+body.navbar-is-fixed-top.navbar-administration.navbar-vertical.navbar-tray-open .navbar-fixed-top {
+  left: 240px;
+  left: 24rem;
+  }
+}
+.navbar-administration #navbar-administration.navbar-oriented .navbar-bar{
+  z-index: 1032;
+}
+.navbar-administration #navbar-administration .navbar-tray {
+  z-index: 1031;
+}
+body.navbar-is-fixed-top.navbar-administration {
+  padding-top: 103px!important;
+}
+body.navbar-is-fixed-top.navbar-administration.navbar-horizontal.navbar-tray-open {
+  padding-top: 143px!important;
+}
+body.navbar-tray-open.navbar-vertical.navbar-fixed {
+  margin-left: 240px;
+  margin-left: 24rem;
+}
+#navbar-administration.navbar-oriented .navbar-tray-vertical {
+  width: 24rem;
 }
