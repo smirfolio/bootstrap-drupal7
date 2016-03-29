@@ -453,7 +453,6 @@ function obiba_bootstrap_preprocess_page(&$variables) {
   if (!empty($first_letter_title)) {
     $variables['classes_array']['title_page'] = $first_letter_title;
   }
-  drupal_add_js('misc/jquery.cookie.js', 'file');
 
   // If cdn provider not set use local js bootstrap not used in production
   $cdn_setting = theme_get_setting('bootstrap_cdn_provider', 'obiba_bootstrap');

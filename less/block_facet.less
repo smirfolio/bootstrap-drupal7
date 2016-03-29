@@ -2,7 +2,6 @@
   font-size: @facet_font_size;
   line-height: @facet_line_height;
   padding: 0;
-  margin-right: 20px;
 
   /* current search */
   .block-current-search {
@@ -269,6 +268,9 @@
     border-left: 1px solid @well-border;
     border-right: 1px solid @well-border;
   }
+  .nav-tabs {
+    margin-bottom: 0px !important;
+  }
 }
 
 #block-mica-mica-search-filters {
@@ -322,6 +324,23 @@
     font-size: @font-size-h5;
   }
 
+}
+
+form.autocomplete {
+  padding: 0 5px 0 17px !important;
+
+  div.dropdown {
+    position: absolute;
+    z-index: 150;
+  }
+
+  .dropdown-menu {
+    position: relative;
+  }
+}
+
+.refresh-list {
+  max-height: 39px;
 }
 
 .bordered-tab-content {
@@ -381,7 +400,7 @@
   a[id^='group-expand-collapse'] {
     position: relative;
     padding-right: 19px;
-    top:-26px;
+    top:-40px;
 
     font-size: xx-small;
 
