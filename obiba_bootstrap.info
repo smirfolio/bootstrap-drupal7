@@ -45,7 +45,8 @@ settings[toggle_secondary_menu] = 0
 ;;;;;;;;;;;;;;;;;;;;;
 
 stylesheets[all][] = css/style.css
-
+stylesheets[all][] = css/obiba-facet-search.css
+stylesheets[all][] = css/obiba.css
 ; For information on choosing the desired method, please read the Drupal
 ; Bootstrap sub-theme "how-to" documentation:
 ; https://drupal.org/node/1978010
