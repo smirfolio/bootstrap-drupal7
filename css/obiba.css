@@ -1830,6 +1830,40 @@
   font-weight: normal;
   font-style: normal;
 }
+/****Harmonized dataset page****/
+section.table-variables .alert-warning {
+  background-color: transparent !important;
+}
+section.table-variables .alert-success {
+  background-color: transparent !important;
+}
+section.table-variables .alert-danger {
+  background-color: transparent !important;
+}
+div.legend {
+  font-size: 12px;
+}
+div.legend h6 {
+  display: inline-block;
+  font-weight: bold;
+  margin: 5px 0 0 0;
+}
+div.legend i {
+  background: transparent !important;
+}
+.dataTables_scrollBody {
+  margin-top: -21px;
+}
+.document-item-list {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.document-item-list:hover {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #f9f9f9;
+}
+/*****************************/
 div.search-count {
   text-align: center;
   vertical-align: middle;
@@ -2179,6 +2213,12 @@ div.scroll-content-tab {
   z-index: 25;
   right: 30px;
   top: -10px;
+}
+.alert-fixed-position {
+  top: 4em !important;
+}
+.alert-growl-container {
+  top: 4em !important;
 }
 @media (max-width: 604px) {
   /******pages : list network, datasets, studies*****/
