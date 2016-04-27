@@ -1076,7 +1076,7 @@ body {
   font-size: 15px;
   line-height: 1.42857143;
   color: #2C3E50;
-  background-color: #fff;
+  background-color: #fafafa;
 }
 input,
 button,
@@ -1121,7 +1121,7 @@ img {
 .img-thumbnail {
   padding: 4px;
   line-height: 1.42857143;
-  background-color: #fff;
+  background-color: #fafafa;
   border: 1px solid #ecf0f1;
   border-radius: 4px;
   -webkit-transition: all 0.2s ease-in-out;
@@ -2281,7 +2281,7 @@ th {
   border-top: 2px solid #ecf0f1;
 }
 .table .table {
-  background-color: #fff;
+  background-color: #fafafa;
 }
 .table-condensed > thead > tr > th,
 .table-condensed > tbody > tr > th,
@@ -5004,7 +5004,7 @@ a.badge:focus {
   padding: 4px;
   margin-bottom: 21px;
   line-height: 1.42857143;
-  background-color: #fff;
+  background-color: #fafafa;
   border: 1px solid #ecf0f1;
   border-radius: 4px;
   -webkit-transition: border 0.2s ease-in-out;
@@ -7372,9 +7372,6 @@ table tr.error {
 .form-group.error .help-inline,
 .form-group.has-error .help-inline {
   color: #b4bcc2;
-}
-.nav-tabs {
-  margin-bottom: 10px;
 }
 ul li.collapsed,
 ul li.expanded,
