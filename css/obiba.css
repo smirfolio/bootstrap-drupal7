@@ -2225,6 +2225,13 @@ div.scroll-content-tab {
   background-color: #ffffff !important;
   border-color: #95a5a6 !important;
 }
+.chart-title {
+  color: black;
+  font-size: 12px;
+  font-family: Arial;
+  font-weight: bold;
+  margin: 35px 0px 20px 100px;
+}
 @media (max-width: 604px) {
   /******pages : list network, datasets, studies*****/
   .main-container {
