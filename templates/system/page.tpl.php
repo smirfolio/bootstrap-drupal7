@@ -126,7 +126,7 @@
           <li class="dropdown">
             <a href="" class="dropdown-toggle" data-toggle="dropdown">
               <i class="fa fa-user"></i>
-              <?php print $user->name ?>
+              <?php print !empty($user->data['real_name'])?$user->data['real_name']:$user->name; ?>
               <i class="fa fa-caret-down"></i></a>
             <ul class="dropdown-menu pull-right">
               <li><?php print l('<i class="fa fa-cog"></i> ' .
