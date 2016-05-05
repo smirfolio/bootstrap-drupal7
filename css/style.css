@@ -7260,8 +7260,7 @@ fieldset .panel-heading a.panel-title {
 fieldset .panel-heading a.panel-title:hover {
   text-decoration: none;
 }
-.form-group:last-child,
-.panel:last-child {
+.form-group:last-child {
   margin-bottom: 0;
 }
 .form-horizontal .form-group {
@@ -10258,9 +10257,6 @@ li > a.pagination-total:active {
   color: black;
   text-decoration: none !important;
   cursor: default !important;
-}
-.panel:last-child {
-  margin-bottom: 21px !important;
 }
 /***Admin adjustment ***/
 .system-status-report {
