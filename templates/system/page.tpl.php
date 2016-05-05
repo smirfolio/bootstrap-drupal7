@@ -133,7 +133,10 @@
                   t('My Profile'), $profile_path,
                   array('html' => TRUE, 'fragment' => 'view')) ?></li>
               <li class="divider"></li>
-              <li><?php print l('<i class="fa fa-sign-out"></i> ' . t('Sign Out'), 'user/logout', array('html' => TRUE)) ?></li>
+              <li><?php print l('<i class="fa fa-sign-out"></i> ' . t('Sign Out'), 'user/logout', array(
+                  'attributes' => array('class' => 'redirection-place-holder'),
+                  'query' => array('destination' => current_path()),
+                  'html' => TRUE)) ?></li>
             </ul>
           </li>
         </ul>
@@ -142,11 +145,12 @@
           <?php print l(variable_get_value('access_signup_button'),
             (module_exists('obiba_agate') ? 'agate' : 'user') . '/register/',
             array(
-              'attributes' => array('class' => 'btn btn-info'),
+              'attributes' => array('class' => 'redirection-place-holder btn btn-info'),
               'fragment' => 'join',
             )) ?>
-          <?php print l(variable_get_value('access_signin_button'), 'user/login', array(
-            'attributes' => array('class' => 'btn btn-default'),
+          <?php
+          print l(variable_get_value('access_signin_button'), 'user/login', array(
+            'attributes' => array('class' => 'redirection-place-holder btn btn-default'),
             'query' => array('destination' => current_path()),
           )) ?>
         </div>
