@@ -126,10 +126,30 @@
                   t('My Profile'), $profile_path,
                   array('html' => TRUE, 'fragment' => 'view')) ?></li>
               <li class="divider"></li>
-              <li><?php print l('<i class="fa fa-sign-out"></i> ' . t('Sign Out'), 'user/logout', array('html' => TRUE)) ?></li>
+              <li><?php print l('<i class="fa fa-sign-out"></i> ' . t('Sign Out'), 'user/logout', array(
+                  'attributes' => array('class' => array('redirection-place-holder')),
+                  'query' => array('destination' => current_path()),
+                  'html' => TRUE)) ?></li>
             </ul>
           </li>
         </ul>
+      <?php else: ?>
+        <div class="navbar-btn navbar-right">
+          <?php $register_url = (module_exists('obiba_agate') ? 'agate' : 'user') . '/register/'; ?>
+          <?php $option_sign_up = array('attributes' => array('class' => array('redirection-place-holder', 'btn btn-info'))) ;
+          if(module_exists('obiba_agate')){
+            $option_sign_up = array_merge($option_sign_up, array('fragment' => 'join'));
+          }
+          ?>
+          <?php print l(variable_get_value('access_signup_button'),
+            $register_url, $option_sign_up); ?>
+          <?php
+
+          print l(variable_get_value('access_signin_button'), 'user/login', array(
+            'attributes' => array('class' => array('redirection-place-holder', 'btn btn-default')),
+            'query' => array('destination' => current_path()),
+          )); ?>
+        </div>
       <?php endif; ?>
     </div>
   </div>
