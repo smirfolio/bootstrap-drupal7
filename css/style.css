@@ -7336,6 +7336,7 @@ table.sticky-header {
 a.tabledrag-handle .handle {
   height: auto;
   width: auto;
+  padding: 0.42em 0.7em;
 }
 .error {
   color: #ffffff;
