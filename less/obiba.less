@@ -1,5 +1,4 @@
-
-@import "variables-flatly.less";
+@import "bootstrap";
 @import "variables-obiba.less";
 
 @font-face {
@@ -511,4 +510,11 @@ div.dataTables_filter {
   }
 }
 
+.alert.well {
+  padding: @alert-padding;
+}
+
+.alert.well.alert-dismissible, .alert.well.alert-dismissable {
+  .alert-dismissible
+}
 @import "responsive_rules.less";
