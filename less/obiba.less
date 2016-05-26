@@ -517,4 +517,46 @@ div.dataTables_filter {
 .alert.well.alert-dismissible, .alert.well.alert-dismissable {
   .alert-dismissible
 }
+
+.markdown table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 21px;
+
+    & >thead > tr > th,
+    & >tbody > tr > th,
+    & >tfoot > tr > th,
+    & >thead > tr > td,
+    & >tbody > tr > td,
+    & >tfoot > tr > td {
+    padding: 8px;
+    line-height: @line-height-base;
+    vertical-align: top;
+    border-top: 1px solid @gray-lighter;
+  }
+
+  &> thead > tr > th {
+    vertical-align: bottom;
+    border-bottom: 2px solid @gray-lighter;
+  }
+  & > caption + thead > tr:first-child > th,
+  & > colgroup + thead > tr:first-child > th,
+  & > thead:first-child > tr:first-child > th,
+  & > caption + thead > tr:first-child > td,
+  & > colgroup + thead > tr:first-child > td,
+  & > thead:first-child > tr:first-child > td {
+    border-top: 0;
+  }
+  & > tbody + tbody {
+    border-top: 2px solid @gray-lighter;
+  }
+  & .table {
+    background-color: @body-bg;
+  }
+  & > tbody > tr:nth-child(odd) > td,
+  & > tbody > tr:nth-child(odd) > th {
+    background-color: @table-bg-accent;
+  }
+}
+
 @import "responsive_rules.less";
