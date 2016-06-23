@@ -278,3 +278,18 @@ div.admin, .page-admin {
     }
   }
 }
+
+.form-group.error,
+.form-group.has-error {
+  background: none;
+  label, .control-label {
+    color: @errorText !important;
+    font-weight: 600;
+  }
+  input, textarea, select, .uneditable-input {
+    color: @input-color;
+  }
+  .help-block, .help-inline {
+    color: @text-muted;
+  }
+}
