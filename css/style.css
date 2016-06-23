@@ -9373,6 +9373,10 @@ div.dataTables_filter input.input-sm {
     padding: 10px 10px;
   }
 }
+.obiba-comment-top-offset1,
+.obiba-comment-form {
+  margin-top: 5px;
+}
 @media (max-width: 1023px) {
   .navbar-header {
     float: none;
