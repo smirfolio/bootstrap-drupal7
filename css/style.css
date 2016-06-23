@@ -9627,7 +9627,7 @@ div.admin .admin-panel .body,
 .form-group.has-error label,
 .form-group.error .control-label,
 .form-group.has-error .control-label {
-  color: #C7254E !important;
+  color: #E74C3C !important;
   font-weight: 600;
 }
 .form-group.error input,
