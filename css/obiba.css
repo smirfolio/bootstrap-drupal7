@@ -9294,7 +9294,7 @@ div.dataTables_filter input.input-sm {
 .dataTables_paginate .pagination {
   margin: 0 !important;
 }
-.dataTables_length > label {
+.dataTables_length label {
   margin-bottom: 0 !important;
 }
 @media (max-width: 604px) {

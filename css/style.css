@@ -9619,6 +9619,33 @@ div.admin .admin-panel .body,
 .page-admin .admin-panel .body {
   padding: 0px !important;
 }
+.form-group.error,
+.form-group.has-error {
+  background: none;
+}
+.form-group.error label,
+.form-group.has-error label,
+.form-group.error .control-label,
+.form-group.has-error .control-label {
+  color: #c7254e !important;
+  font-weight: 600;
+}
+.form-group.error input,
+.form-group.has-error input,
+.form-group.error textarea,
+.form-group.has-error textarea,
+.form-group.error select,
+.form-group.has-error select,
+.form-group.error .uneditable-input,
+.form-group.has-error .uneditable-input {
+  color: #2c3e50;
+}
+.form-group.error .help-block,
+.form-group.has-error .help-block,
+.form-group.error .help-inline,
+.form-group.has-error .help-inline {
+  color: #b4bcc2;
+}
 html.overlay-open .navbar-fixed-top {
   z-index: 400;
 }
