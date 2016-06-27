@@ -418,6 +418,9 @@ function obiba_bootstrap_letters_badge_title() {
     if ((!empty($current_item[2]) && strstr($current_item[2], 'study-')) || strstr($current_item[1], 'study-')) {
       return 'D';
     }
+    if (!empty($current_item[2]) && strstr($current_item[2], 'project')) {
+      return 'project';
+    }
     if ((!empty($current_item[2]) && strstr($current_item[2], 'harmonization-')) ||
       strstr($current_item[1], 'harmonization-')
     ) {
