@@ -176,6 +176,7 @@
   <!-- /#page-header -->
 
   <div class="row">
+    <div<?php print $content_column_class; ?>>
     <?php if (!empty($breadcrumb)): print $breadcrumb;
     endif; ?>
     <?php if (!empty($title)): ?>
@@ -198,6 +199,7 @@
       </div>
       </div>
     <?php endif; ?>
+    </div>
     <?php if (!empty($page['sidebar_first']) || !empty($page['facets'])): ?>
       <aside class="col-sm-4 col-lg-3" role="complementary">
         <?php if (!empty($page['facets'])): ?>
