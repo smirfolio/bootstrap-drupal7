@@ -8909,6 +8909,7 @@ blockquote-small {
   padding: 5px 10px !important;
   margin: 0 0 5px !important;
   border-left: 3px solid #eee;
+  font-size: 13px;
 }
 #obiba-mica-search-form .form-item {
   display: inline;
