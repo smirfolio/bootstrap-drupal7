@@ -9821,6 +9821,8 @@ ul.secondary {
 }
 .page-header {
   margin-top: 0;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 .block:first-child h2.block-title {
   margin-top: 0;
@@ -10427,3 +10429,4 @@ body.navbar-tray-open.navbar-vertical.navbar-fixed {
 #navbar-administration.navbar-oriented .navbar-tray-vertical {
   width: 24rem;
 }
+/*# sourceMappingURL=style.css.map */
