@@ -9334,7 +9334,7 @@ div.dataTables_filter input.input-sm {
 .markdown table > tbody > tr:nth-child(odd) > th {
   background-color: #f9f9f9;
 }
-.dataTables_paginate .pagination {
+.pagination {
   margin: 0 !important;
 }
 .dataTables_length label {
