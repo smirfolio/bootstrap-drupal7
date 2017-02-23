@@ -133,10 +133,21 @@
                   t('My Profile'), $profile_path,
                   array('html' => TRUE, 'fragment' => 'view')) ?></li>
               <li class="divider"></li>
-              <li><?php print l('<i class="fa fa-sign-out"></i> ' . t('Sign Out'), 'user/logout', array(
-                  'attributes' => array('class' => array('redirection-place-holder')),
-                  'query' => array('destination' => current_path()),
-                  'html' => TRUE)) ?></li>
+              <?php
+              if (module_exists('obiba_agate')){
+                $logout_path_redirect = obiba_agate_redirect_path();
+                $redirect_place_holder = variable_get_value('obiba_logout_redirection_page')=='<current>'?'redirection-place-holder':'no-redirection';
+              }
+              else{
+                $logout_path_redirect = current_path();
+              }
+                ?>
+              <li><?php
+                $link_logout = l('<i class="fa fa-sign-out"></i> ' . t('Sign Out'), 'user/logout', array(
+                  'attributes' => array('class' => array(!empty($redirect_place_holder)?$redirect_place_holder:'redirection-place-holder')),
+                  'query' => array('destination' => $logout_path_redirect),
+                  'html' => TRUE));
+                print $link_logout ?></li>
             </ul>
           </li>
         </ul>
