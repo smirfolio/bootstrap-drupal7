@@ -485,6 +485,7 @@ function obiba_bootstrap_preprocess_page(&$variables) {
     unset($variables['tabs']);
   }
   $variables['profile_path'] = obiba_bootstrap_get_user_profile_page();
+  $variables['content_lang_switch'] = obiba_bootstrap_get_lang_switch();
 }
 
 /**
@@ -547,4 +548,33 @@ function obiba_bootstrap_menu_local_action($variables) {
   $output .= "</li>\n";
 
   return $output;
+}
+
+function obiba_bootstrap_get_lang_switch(){
+  global $language;
+  $lang_name = $language->language;
+  if(module_exists('locale')) {
+    $path = drupal_is_front_page() ? '<front>' : $_GET['q'];
+    $enabled_languages = language_list($field = 'language');
+    if (count($enabled_languages) > 1) {
+      $div_menu = '<li class="expanded dropdown">';
+      $div_menu .= '<a data-target="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">'
+                     . $lang_name .
+                     '<span class="caret"></span>
+                    </a>';
+      $links = language_negotiation_get_switch_links('language_url', $path);
+      $div_menu .= '<ul class="dropdown-menu">';
+      foreach ($links->links as $key_lang => $link) {
+        $trans_url = url(drupal_get_path_alias($link['href']), array('language' => language_list()[$key_lang]));
+        if ($lang_name != $key_lang) {
+          $div_menu .= '<li  class="expanded dropdown">';
+          $div_menu .= '<a href="' . $trans_url . '" class="fragment-link-place-holder">' . $link['language']->language . '</a>';
+          $div_menu .= '</li>';
+        }
+      }
+      $div_menu .= '</ul></li>';
+      return $div_menu;
+    }
+  }
+  return FALSE;
 }

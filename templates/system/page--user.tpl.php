@@ -115,52 +115,61 @@
         </nav>
       <?php endif; ?>
       <?php if (empty($user->roles[1]) || $user->roles[1] !== 'anonymous user'): ?>
-        <ul class="nav navbar-nav navbar-right">
-          <li class="dropdown active">
-            <a href="" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="fa fa-user"></i>
-              <?php print !empty($user->data['real_name'])?$user->data['real_name']:$user->name; ?>
-              <i class="fa fa-caret-down"></i></a>
-            <ul class="dropdown-menu pull-right">
-              <li><?php print l('<i class="fa fa-cog"></i> ' .
-                  t('My Profile'), $profile_path,
-                  array('html' => TRUE, 'fragment' => 'view')) ?></li>
-              <li class="divider"></li>
-              <?php
-              if (module_exists('obiba_agate')){
-                $logout_path_redirect = obiba_agate_redirect_path();
-                $redirect_place_holder = variable_get_value('obiba_logout_redirection_page')=='<current>'?'redirection-place-holder':'no-redirection';
-              }
-              else{
-                $logout_path_redirect = current_path();
-              }
-              ?>
-              <li><?php
-                $link_logout = l('<i class="fa fa-sign-out"></i> ' . t('Sign Out'), 'user/logout', array(
-                  'attributes' => array('class' => array(!empty($redirect_place_holder)?$redirect_place_holder:'redirection-place-holder')),
-                  'query' => array('destination' => $logout_path_redirect),
-                  'html' => TRUE));
-                print $link_logout ?></li>
-            </ul>
-          </li>
-        </ul>
+          <ul class="nav navbar-nav navbar-right">
+              <li class="dropdown">
+                  <a href="" class="dropdown-toggle" data-toggle="dropdown">
+                      <i class="fa fa-user"></i>
+                    <?php print !empty($user->data['real_name'])?$user->data['real_name']:$user->name; ?>
+                      <i class="fa fa-caret-down"></i></a>
+                  <ul class="dropdown-menu pull-right">
+                      <li><?php print l('<i class="fa fa-cog"></i> ' .
+                          t('My Profile'), $profile_path,
+                          array('html' => TRUE, 'fragment' => 'view')) ?></li>
+                      <li class="divider"></li>
+                    <?php
+                    if (module_exists('obiba_agate')){
+                      $logout_path_redirect = obiba_agate_redirect_path();
+                      $redirect_place_holder = variable_get_value('obiba_logout_redirection_page')=='<current>'?'redirection-place-holder':'no-redirection';
+                    }
+                    else{
+                      $logout_path_redirect = current_path();
+                    }
+                    ?>
+                      <li><?php
+                        $link_logout = l('<i class="fa fa-sign-out"></i> ' . t('Sign Out'), 'user/logout', array(
+                          'attributes' => array('class' => array(!empty($redirect_place_holder)?$redirect_place_holder:'redirection-place-holder')),
+                          'query' => array('destination' => $logout_path_redirect),
+                          'html' => TRUE));
+                        print $link_logout ?></li>
+                  </ul>
+              </li>
+              <!--        Switch lang if enabled-->
+            <?php if (!empty($content_lang_switch) && module_exists('locale')): ?>
+              <?php print render($content_lang_switch); ?>
+            <?php endif; ?>
+              <!--     Switch lang if enabled   -->
+          </ul>
       <?php else: ?>
-        <div class="navbar-btn navbar-right">
-          <?php $register_url = (module_exists('obiba_agate') ? 'agate' : 'user') . '/register/'; ?>
-          <?php $option_sign_up = array('attributes' => array('class' => array('redirection-place-holder', 'btn btn-info'))) ;
-          if(module_exists('obiba_agate')){
-            $option_sign_up = array_merge($option_sign_up, array('fragment' => 'join'));
-          }
-          ?>
-          <?php print l(variable_get_value('access_signup_button'),
-            $register_url, $option_sign_up); ?>
-          <?php
-
-          print l(variable_get_value('access_signin_button'), 'user/login', array(
-            'attributes' => array('class' => array('redirection-place-holder', 'btn btn-default')),
-            'query' => array('destination' => current_path()),
-          )); ?>
-        </div>
+          <ul class="nav navbar-nav navbar-right">
+            <?php $register_url = (module_exists('obiba_agate') ? 'agate' : 'user') . '/register/';?>
+            <?php $option_sign_up = array('attributes' => array('class' => array('redirection-place-holder', ''))) ;
+            if(module_exists('obiba_agate')){
+              $option_sign_up = array_merge($option_sign_up, array('fragment' => 'join'));
+            }
+            ?>
+              <li><?php print l(variable_get_value('access_signup_button'),
+                  $register_url, $option_sign_up) ?></li>
+              <li> <?php
+                print l(variable_get_value('access_signin_button'), 'user/login', array(
+                  'attributes' => array('class' => array('redirection-place-holder', '')),
+                  'query' => array('destination' => current_path()),
+                )) ?></li>
+              <!--        Switch lang if enabled-->
+            <?php if (!empty($content_lang_switch) && module_exists('locale')): ?>
+              <?php print render($content_lang_switch); ?>
+            <?php endif; ?>
+              <!--     Switch lang if enabled   -->
+          </ul>
       <?php endif; ?>
     </div>
   </div>
