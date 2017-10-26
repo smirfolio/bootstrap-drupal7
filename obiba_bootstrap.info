@@ -70,6 +70,7 @@ scripts[] = 'bootstrap/js/scrollspy.js'
 scripts[] = 'bootstrap/js/tab.js'
 scripts[] = 'bootstrap/js/transition.js'
 scripts[] = js/obiba-bootstrap-progressbar-controller.js
+scripts[] = js/obiba-bootstrap-rewrite-switsh-lang-links.js
 
 
 ;

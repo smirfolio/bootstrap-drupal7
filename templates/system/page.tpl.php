@@ -150,23 +150,33 @@
                 print $link_logout ?></li>
             </ul>
           </li>
+            <!--        Switch lang if enabled-->
+          <?php if (!empty($content_lang_switch) && module_exists('locale')): ?>
+            <?php print render($content_lang_switch); ?>
+          <?php endif; ?>
+            <!--     Switch lang if enabled   -->
         </ul>
       <?php else: ?>
-        <div class="navbar-btn navbar-right">
+        <ul class="nav navbar-nav navbar-right">
           <?php $register_url = (module_exists('obiba_agate') ? 'agate' : 'user') . '/register/';?>
-          <?php $option_sign_up = array('attributes' => array('class' => array('redirection-place-holder', 'btn btn-info'))) ;
+          <?php $option_sign_up = array('attributes' => array('class' => array('redirection-place-holder', ''))) ;
           if(module_exists('obiba_agate')){
             $option_sign_up = array_merge($option_sign_up, array('fragment' => 'join'));
           }
           ?>
-          <?php print l(variable_get_value('access_signup_button'),
-            $register_url, $option_sign_up) ?>
-          <?php
+          <li><?php print l(variable_get_value('access_signup_button'),
+              $register_url, $option_sign_up) ?></li>
+         <li> <?php
           print l(variable_get_value('access_signin_button'), 'user/login', array(
-            'attributes' => array('class' => array('redirection-place-holder', 'btn btn-default')),
+            'attributes' => array('class' => array('redirection-place-holder', '')),
             'query' => array('destination' => current_path()),
-          )) ?>
-        </div>
+          )) ?></li>
+            <!--        Switch lang if enabled-->
+          <?php if (!empty($content_lang_switch) && module_exists('locale')): ?>
+             <?php print render($content_lang_switch); ?>
+          <?php endif; ?>
+            <!--     Switch lang if enabled   -->
+        </ul>
       <?php endif; ?>
 
     </div>
