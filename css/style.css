@@ -9396,6 +9396,15 @@ div.dataTables_filter input.input-sm {
 fieldset legend.panel-heading {
   float: none !important;
 }
+.list-counts:first-child {
+  font-size: 125%;
+  font-weight: bold;
+  margin-top: 1px;
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+  padding: 6px 0px;
+}
 @media (max-width: 1023px) {
   .navbar-header {
     float: none;
