@@ -402,6 +402,25 @@ function obiba_bootstrap_preprocess_html(&$variables) {
   }
 }
 
+function obiba_bootstrap_get_letter_from_item_path($key_item, $current_item){
+  switch ($current_item[$key_item]){
+    case strstr($current_item[$key_item], 'network'):
+      return 'N';
+    case strstr($current_item[$key_item], 'individual-study'):
+    case strstr($current_item[$key_item], 'harmonization-study'):
+      return 'S';
+    case strstr($current_item[$key_item], 'collected-dataset'):
+      return 'D';
+    case strstr($current_item[$key_item], 'harmonized-dataset'):
+      return 'D-h';
+    case strstr($current_item[$key_item], 'repository'):
+      return 'search-icon';
+    case strstr($current_item[$key_item], 'research'):
+    case strstr($current_item[$key_item], 'project'):
+    return 'project';
+  }
+  return FALSE;
+}
 /**
  * Return the first letter in current path page.
  *
@@ -414,35 +433,20 @@ function obiba_bootstrap_letters_badge_title() {
     return NULL;
   }
 
+  if(!empty($current_item[2])){
+    $class = obiba_bootstrap_get_letter_from_item_path(2, $current_item);
+    if($class){
+      return $class;
+    }
+  }
   if (!empty($current_item[1])) {
-    if ((!empty($current_item[2]) && strstr($current_item[2], 'study-')) || strstr($current_item[1], 'study-')) {
-      return 'D';
+    $class = obiba_bootstrap_get_letter_from_item_path(1, $current_item);
+    if($class){
+      return $class;
     }
-    if ((!empty($current_item[1]) && strstr($current_item[1], 'research')) || (!empty($current_item[2]) && strstr($current_item[2], 'project'))) {
-      return 'project';
-    }
-    if ((!empty($current_item[2]) && strstr($current_item[2], 'harmonization-')) ||
-      strstr($current_item[1], 'harmonization-')
-    ) {
-      return 'D-h';
-    }
-    if (strstr($current_item[1], 'datasets')) {
-      return 'D';
-    }
-    if (strstr($current_item[1], 'coverage')) {
-      return 'taxonomy';
-    }
+  }
 
-    elseif (strstr($current_item[1], 'search') || strstr($current_item[1], 'repository')) {
-      return 'search-icon';
-    }
-    else {
-      return drupal_strtoupper(drupal_substr($current_item[1], 0, 1));
-    }
-  }
-  else {
-    return NULL;
-  }
+  return drupal_strtoupper(drupal_substr($current_item[1], 0, 1));
 }
 
 /**
@@ -461,13 +465,6 @@ function obiba_bootstrap_preprocess_page(&$variables) {
   $cdn_setting = theme_get_setting('bootstrap_cdn_provider', 'obiba_bootstrap');
   if (empty($cdn_setting)) {
     drupal_add_js(drupal_get_path('theme', 'obiba_bootstrap') . '/bootstrap/js/bootstrap.js');
-  }
-  // Add information about the number of sidebars.
-  if (!empty($variables['page']['facets']) && !empty($variables['page']['sidebar_second'])) {
-    $variables['content_column_class'] = ' class="col-sm-6"';
-  }
-  elseif (!empty($variables['page']['facets']) || !empty($variables['page']['sidebar_second'])) {
-    $variables['content_column_class'] = ' class="col-sm-8 col-lg-9"';
   }
   // Add information about the number of sidebars.
   elseif (!empty($variables['page']['sidebar_first']) && !empty($variables['page']['sidebar_second'])) {
