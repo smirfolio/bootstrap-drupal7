@@ -19,8 +19,7 @@
         if (module_exists('obiba_agate')) {
           $option_sign_up = array('fragment' => 'join');
         }
-        print l('Not a member? Join now',
-          $register_url, $option_sign_up) ?>
+        print l(t('Not a member? Join now'), $register_url, $option_sign_up) ?>
       </div>
     </div>
   </div>
