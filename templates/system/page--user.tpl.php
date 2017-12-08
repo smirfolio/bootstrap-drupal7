@@ -114,8 +114,8 @@
           <?php endif; ?>
         </nav>
       <?php endif; ?>
-      <?php if (empty($user->roles[1]) || $user->roles[1] !== 'anonymous user'): ?>
-          <ul class="nav navbar-nav navbar-right">
+        <ul class="nav navbar-nav navbar-right">
+          <?php if (empty($user->roles[1]) || $user->roles[1] !== 'anonymous user'): ?>
               <li class="dropdown">
                   <a href="" class="dropdown-toggle" data-toggle="dropdown">
                       <i class="fa fa-user"></i>
@@ -144,13 +144,7 @@
                   </ul>
               </li>
               <!--        Switch lang if enabled-->
-            <?php if (!empty($content_lang_switch) && module_exists('locale')): ?>
-              <?php print render($content_lang_switch); ?>
-            <?php endif; ?>
-              <!--     Switch lang if enabled   -->
-          </ul>
-      <?php else: ?>
-          <ul class="nav navbar-nav navbar-right">
+          <?php else: ?>
             <?php $register_url = (module_exists('obiba_agate') ? 'agate' : 'user') . '/register/';?>
             <?php $option_sign_up = array('attributes' => array('class' => array('redirection-place-holder', ''))) ;
             if(module_exists('obiba_agate')){
@@ -164,13 +158,13 @@
                   'attributes' => array('class' => array('redirection-place-holder', '')),
                   'query' => array('destination' => current_path()),
                 )) ?></li>
-              <!--        Switch lang if enabled-->
-            <?php if (!empty($content_lang_switch) && module_exists('locale')): ?>
-              <?php print render($content_lang_switch); ?>
-            <?php endif; ?>
-              <!--     Switch lang if enabled   -->
-          </ul>
-      <?php endif; ?>
+          <?php endif; ?>
+            <!--        Switch lang if enabled-->
+          <?php if (!empty($content_lang_switch) && module_exists('locale')): ?>
+            <?php print render($content_lang_switch); ?>
+          <?php endif; ?>
+            <!--     Switch lang if enabled   -->
+        </ul>
     </div>
   </div>
 </header>
