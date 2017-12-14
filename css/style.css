@@ -9405,6 +9405,18 @@ fieldset legend.panel-heading {
   text-align: center;
   padding: 6px 0px;
 }
+/*######Scroll To Top ###########*/
+#back-to-top {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  z-index: 9999;
+  transition: opacity 0.2s ease-out;
+  opacity: 0;
+}
+#back-to-top.show {
+  opacity: 1;
+}
 @media (max-width: 1023px) {
   .navbar-header {
     float: none;
