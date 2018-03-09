@@ -414,6 +414,7 @@ function obiba_bootstrap_get_letter_from_item_path($key_item, $current_item){
     case strstr($current_item[$key_item], 'harmonized-dataset'):
       return 'D-h';
     case strstr($current_item[$key_item], 'repository'):
+    case strstr($current_item[$key_item], 'analysis'):
       return 'search-icon';
     case strstr($current_item[$key_item], 'research'):
     case strstr($current_item[$key_item], 'project'):
