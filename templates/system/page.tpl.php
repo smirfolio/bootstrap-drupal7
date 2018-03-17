@@ -124,7 +124,7 @@
         <ul class="nav navbar-nav navbar-right">
         <?php if (module_exists('obiba_mica_sets')): ?>
           <li>
-            <?php print l('<i class="fa fa-shopping-cart fa-lg"></i> ','/mica/sets', array('html' => TRUE, 'fragment' => 'cart')) ?>
+            <?php print l('<i class="fa fa-shopping-cart fa-lg"></i> <span id="mica-cart-counter" class="label label-info"></span>','/mica/sets', array('html' => TRUE, 'fragment' => 'cart')) ?>
           </li>
         <?php endif; ?>
         <?php if (empty($user->roles[1]) || $user->roles[1] !== 'anonymous user'): ?>
@@ -194,7 +194,7 @@
 
   </header>
   <!-- /#page-header -->
-
+  
   <div class="row">
     <div<?php print $content_column_class; ?>>
     <?php if (!empty($breadcrumb)): print $breadcrumb;

@@ -10,7 +10,7 @@
 
 /**
  * @file
- * JsScript to deal for the switch links lang widget
+ * JsScript to deal with the switch links lang widget
  */
 
 (function ($) {
@@ -30,6 +30,6 @@
         });
       }
     }
-  }
+  };
 
 })(jQuery);
