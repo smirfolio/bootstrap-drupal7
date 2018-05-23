@@ -19,15 +19,19 @@
     attach: function (context, settings) {
 
       if (document === context) {
-        var href = $('a.fragment-link-place-holder');
-        href.each(function (i,link) {
-          var newLink = $(link).attr('href') + window.location.hash;
-          $(link).attr('href', newLink);
-          $(link).on("click", function (event) {
-            event.preventDefault();
-            window.location = newLink;
+        function updateLinkLang(){
+          var redirectPath = Drupal.settings.hrefLanWrapper.path;
+          $('a.fragment-link-place-holder').each(function (i,link) {
+            var urlParts = location.href.split(redirectPath);
+            var newLink = $(link).attr('href').split('#')[0] + (urlParts[1] || '');
+            $(link).attr('href', newLink);
           });
-        });
+        }
+        updateLinkLang();
+        window.onhashchange = function(){
+          updateLinkLang();
+        }
+        
       }
     }
   };

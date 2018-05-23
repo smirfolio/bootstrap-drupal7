@@ -554,6 +554,9 @@ function obiba_bootstrap_get_lang_switch(){
   $lang_name = $language->language;
   if(module_exists('locale')) {
     $path = drupal_is_front_page() ? '<front>' : $_GET['q'];
+    drupal_add_js(drupal_get_path('theme', 'obiba_bootstrap') . '/js/obiba-bootstrap-rewrite-switch-lang-links.js');
+    drupal_add_js(array('hrefLanWrapper'=> array(
+      'path'=> $path)), 'setting');
     $enabled_languages = language_list($field = 'language');
     if (count($enabled_languages) > 1) {
       $div_menu = '<li class="expanded dropdown">';
