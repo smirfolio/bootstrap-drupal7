@@ -2496,6 +2496,7 @@ legend {
 }
 label {
   display: inline-block;
+  max-width: 100%;
   margin-bottom: 5px;
   font-weight: bold;
 }
@@ -2651,8 +2652,8 @@ input[type="search"] {
 }
 .radio-inline,
 .checkbox-inline {
-  /* position: relative; */
-  /* display: inline-block; */
+  position: relative;
+  display: inline-block;
   padding-left: 20px;
   margin-bottom: 0;
   vertical-align: middle;

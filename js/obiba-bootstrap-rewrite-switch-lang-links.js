@@ -22,7 +22,8 @@
         function updateLinkLang(){
           var redirectPath = Drupal.settings.hrefLanWrapper.path;
           $('a.fragment-link-place-holder').each(function (i,link) {
-            var newLink = ($(link).attr('href').split('#')[0]?$(link).attr('href').split('#')[0]:$(link).attr('href')) + location.href.split(redirectPath)[1];
+            var urlParts = location.href.split(redirectPath);
+            var newLink = $(link).attr('href').split('#')[0] + (urlParts[1] || '');
             $(link).attr('href', newLink);
           });
         }
