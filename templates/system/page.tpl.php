@@ -163,8 +163,10 @@
             $option_sign_up = array_merge($option_sign_up, array('fragment' => 'join'));
           }
           ?>
-          <li><?php print l(variable_get_value('access_signup_button'),
-              $register_url, $option_sign_up) ?></li>
+          <?php if (variable_get_value('access_signup_button_enable')): ?>
+                <li> <?php print l(variable_get_value('access_signup_button'),
+                    $register_url, $option_sign_up) ?></li>
+          <?php endif; ?>
          <li> <?php
           print l(variable_get_value('access_signin_button'), 'user/login', array(
             'attributes' => array('class' => array('redirection-place-holder', '')),
