@@ -137,6 +137,13 @@
               <li><?php print l('<i class="fa fa-cog"></i> ' .
                   t('My Profile'), $profile_path,
                   array('html' => TRUE, 'fragment' => 'view')) ?></li>
+
+              <?php if (module_exists('obiba_mica_sets')): ?>
+                <li>
+                  <?php print l('<i class="fa fa-list"></i> ' . '<span>' . t('My Sets') . '</span>','/mica/sets', array('html' => TRUE, 'fragment' => 'sets')) ?>
+                </li>
+              <?php endif; ?>
+
               <li class="divider"></li>
               <?php
               if (module_exists('obiba_agate')){
@@ -196,7 +203,7 @@
 
   </header>
   <!-- /#page-header -->
-  
+
   <div class="row">
     <div<?php print $content_column_class; ?>>
     <?php if (!empty($breadcrumb)): print $breadcrumb;
