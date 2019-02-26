@@ -122,7 +122,7 @@
         </nav>
       <?php endif; ?>
         <ul class="nav navbar-nav navbar-right">
-        <?php if (module_exists('obiba_mica_sets')): ?>
+        <?php if ($cart_enabled): ?>
           <li>
             <?php print l('<i class="fa fa-shopping-cart fa-lg"></i> <span id="mica-cart-counter" class="label label-info"></span>','/mica/sets', array('html' => TRUE, 'fragment' => 'cart')) ?>
           </li>

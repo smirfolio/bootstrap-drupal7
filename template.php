@@ -5,6 +5,9 @@
  * template.php
  */
 
+
+use Obiba\ObibaMicaClient\MicaClient\DrupalMicaClient as DrupalMicaClient;
+
 /**
  * Implements hook_theme().
  *
@@ -485,6 +488,12 @@ function obiba_bootstrap_preprocess_page(&$variables) {
   }
   $variables['profile_path'] = obiba_bootstrap_get_user_profile_page();
   $variables['content_lang_switch'] = obiba_bootstrap_get_lang_switch();
+  $variables['cart_enabled'] = obiba_bootstrap_get_cart_option();
+}
+
+function obiba_bootstrap_get_cart_option() {
+  $configs = (new DrupalMicaClient\MicaClientConfigResource())->getAllConfig();
+  return module_exists('obiba_mica_sets') && $configs->currentUserCanCreateCart;
 }
 
 /**
