@@ -15,36 +15,44 @@
 
 (function ($) {
 
-  var updateCartCounter = function() {
-    var total = ['variables', 'datasets', 'studies', 'networks']
-      .map(function(type) {
-        return JSON.parse(localStorage.getItem('mica.cart.' + type));
-      })
-      .filter(function(set) {
-        return set && set != null;
-      })
-      .map(function(set) {
-        return set.count;
-      })
-      .reduce(function(a, b) {
-        return a + b;
-      }, 0);
-    $('#mica-cart-counter').text(total);
-  };
+  Drupal.behaviors.progress_bar = {
+    attach: function (context, settings) {
+      var user = settings.angularjsApp.user;
+      var username = user.name || 'anonymous';
 
-  // tabs and windows will be notified, EXCEPT the one that originated the event...
-  $(window).bind('storage', function (e) {
-    if (e.originalEvent.key === 'mica.cart.variables') {
-      updateCartCounter();
+
+      var updateCartCounter = function () {
+        var total = ['variables', 'datasets', 'studies', 'networks']
+          .map(function (type) {
+            return (JSON.parse(localStorage.getItem('mica.cart.' + type)) || {})[username];
+          })
+          .filter(function (set) {
+            return set;
+          })
+          .map(function (set) {
+            return set.count;
+          })
+          .reduce(function (a, b) {
+            return a + b;
+          }, 0);
+        $('#mica-cart-counter').text(total || 0);
+      };
+
+      // tabs and windows will be notified, EXCEPT the one that originated the event...
+      $(window).bind('storage', function (e) {
+        if (e.originalEvent.key === 'mica.cart.variables') {
+          updateCartCounter();
+        }
+      });
+
+      $(document).bind('cart-updated', function (e) {
+        updateCartCounter();
+      });
+
+      $(document).ready(function () {
+        updateCartCounter();
+      });
     }
-  });
-
-  $(document).bind('cart-updated', function (e) {
-    updateCartCounter();
-  });
-
-  $(document).ready(function() {
-    updateCartCounter();
-  });
+  };
 
 })(jQuery);
