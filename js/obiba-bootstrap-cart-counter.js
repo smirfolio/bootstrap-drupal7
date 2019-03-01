@@ -17,9 +17,9 @@
 
   Drupal.behaviors.progress_bar = {
     attach: function (context, settings) {
-      var user = settings.angularjsApp.user;
-      var username = user.name || 'anonymous';
-
+      var username = settings.angularjsApp && settings.angularjsApp.user
+        ? settings.angularjsApp.user.name || 'anonymous'
+        : 'anonymous';
 
       var updateCartCounter = function () {
         var total = ['variables', 'datasets', 'studies', 'networks']

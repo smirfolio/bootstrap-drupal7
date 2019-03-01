@@ -489,11 +489,20 @@ function obiba_bootstrap_preprocess_page(&$variables) {
   $variables['profile_path'] = obiba_bootstrap_get_user_profile_page();
   $variables['content_lang_switch'] = obiba_bootstrap_get_lang_switch();
   $variables['cart_enabled'] = obiba_bootstrap_get_cart_option();
+
 }
 
 function obiba_bootstrap_get_cart_option() {
   $configs = (new DrupalMicaClient\MicaClientConfigResource())->getAllConfig();
-  return module_exists('obiba_mica_sets') && $configs->currentUserCanCreateCart;
+  if(module_exists('obiba_mica_sets') && $configs->currentUserCanCreateCart){
+    // TEMPORARY FIX until the Cart counter becomes a component and the Angular App gets loaded correctly
+    $jsScripts = drupal_get_js('footer');
+    if (!strstr($jsScripts, 'angular-app')) {
+      obiba_mica_app_angular_load_js_resources('obiba_mica_sets');
+    }
+    return $configs->currentUserCanCreateCart;
+  }
+  return FALSE;
 }
 
 /**
