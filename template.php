@@ -494,7 +494,7 @@ function obiba_bootstrap_preprocess_page(&$variables) {
 
 function obiba_bootstrap_get_cart_option() {
   $configs = (new DrupalMicaClient\MicaClientConfigResource())->getAllConfig();
-  if(module_exists('obiba_mica_sets') && $configs->currentUserCanCreateCart){
+  if(module_exists('obiba_mica_sets') && is_object($configs) && !empty($configs->currentUserCanCreateCart) && $configs->currentUserCanCreateCart){
     // TEMPORARY FIX until the Cart counter becomes a component and the Angular App gets loaded correctly
     $jsScripts = drupal_get_js('footer');
     if (!strstr($jsScripts, 'angular-app')) {
