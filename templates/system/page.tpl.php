@@ -124,7 +124,7 @@
         <ul class="nav navbar-nav navbar-right">
         <?php if ($cart_enabled): ?>
           <li>
-            <?php print l('<i class="fa fa-shopping-cart fa-lg"></i> <span id="mica-cart-counter" class="label label-info"></span>','/mica/sets', array('html' => TRUE, 'fragment' => 'cart')) ?>
+            <?php print l('<i class="fa fa-shopping-cart fa-lg"></i> <span id="mica-cart-counter" class="label label-info"></span>',MicaClientPathProvider::CART, array('html' => TRUE, 'fragment' => 'cart')) ?>
           </li>
         <?php endif; ?>
         <?php if (empty($user->roles[1]) || $user->roles[1] !== 'anonymous user'): ?>
@@ -137,13 +137,6 @@
               <li><?php print l('<i class="fa fa-cog"></i> ' .
                   t('My Profile'), $profile_path,
                   array('html' => TRUE, 'fragment' => 'view')) ?></li>
-
-              <?php if (module_exists('obiba_mica_sets')): ?>
-                <li>
-                  <?php print l('<i class="fa fa-list"></i> ' . '<span>' . t('My Sets') . '</span>','/mica/sets', array('html' => TRUE, 'fragment' => 'sets')) ?>
-                </li>
-              <?php endif; ?>
-
               <li class="divider"></li>
               <?php
               if (module_exists('obiba_agate')){

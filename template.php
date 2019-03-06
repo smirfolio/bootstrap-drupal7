@@ -418,6 +418,7 @@ function obiba_bootstrap_get_letter_from_item_path($key_item, $current_item){
       return 'D-h';
     case strstr($current_item[$key_item], 'repository'):
     case strstr($current_item[$key_item], 'analysis'):
+    case strstr($current_item[$key_item], 'cart'):
     case strstr($current_item[$key_item], 'sets'):
       return 'search-icon';
     case strstr($current_item[$key_item], 'research'):
