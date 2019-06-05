@@ -535,13 +535,13 @@ function obiba_bootstrap_menu_local_action($variables) {
     $link['title'] = check_plain($link['title']);
   }
 
-  $icon = _bootstrap_iconize_button($link['title']);
+  $icon = is_array($link['title']) ? _bootstrap_iconize_button($link['title']) : '';
 
   // Format the action link.
   $output = '<li>';
   if (isset($link['href'])) {
     // Turn link into a mini-button and colorize based on title.
-    if ($class = _bootstrap_colorize_button($link['title'])) {
+    if ($class = $icon) {
       if (!isset($options['attributes']['class'])) {
         $options['attributes']['class'] = array();
       }
