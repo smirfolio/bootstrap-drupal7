@@ -9,6 +9,24 @@
   font-style: normal;
 }
 
+
+@font-face {
+  font-family: 'Inconsolata';
+  src: url('../fonts/Inconsolata-Medium.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+// apply the mono font only on numbers
+//@font-face {
+//  font-family: 'Inconsolata';
+//  font-style: normal;
+//  font-weight: normal;
+//  src: url('../fonts/Inconsolata-Medium.ttf') format('truetype');
+//  unicode-range: U+30-39;
+//}
+
+
 /****Harmonized dataset page****/
 section.table-variables{
   .alert-warning{
@@ -616,4 +634,8 @@ fieldset legend.panel-heading {
 }
 #back-to-top.show {
   opacity: 1;
+}
+
+.mono-font{
+  font-family: @font-family-monospace;
 }
